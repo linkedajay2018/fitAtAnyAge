@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Account Settings') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<h1>⚙️ {{ _('Account Settings') }}</h1>
+
+<div class="account-section">
+    <h2>{{ _('Profile') }}</h2>
+    <p class="muted">
+        {{ _('Joined') }} {{ current_user.created_at.strftime("%Y-%m-%d") }}
+        {% if current_user.is_premium %} &middot; ⭐ {{ _('Premium') }}{% endif %}
+        {% if provider_label %} &middot; {{ _('Connected to %(provider)s', provider=provider_label) }}{% endif %}
+    </p>
+</div>
+
+<div class="account-section">
+    <h2>{{ _('Workout Progress') }}</h2>
+    {% if workout_completed_count %}
+    <p class="muted">
+        {{ _('%(done)s of %(total)s exercises completed across all plans.', done=workout_completed_count, total=workout_total_count) }}
+        {% if workout_last_activity %}
+        {{ _('Last activity: %(date)s.', date=workout_last_activity.strftime("%Y-%m-%d")) }}
+        {% endif %}
+    </p>
+    <ul class="check-list">
+        {% for plan in plan_progress %}
+        <li>{{ plan.icon }} {{ plan.level }} — {{ plan.done }}/{{ plan.total }}</li>
+        {% endfor %}
+    </ul>
+    <p class="muted">{{ _('This syncs automatically across every device you log in on.') }}</p>
+    {% else %}
+    <p class="muted">
+        {{ _('No completed exercises yet — check some off on the') }}
+        <a href="{{ url_for('workouts') }}">{{ _('Workout Plans') }}</a> {{ _('page and it will sync here.') }}
+    </p>
+    {% endif %}
+</div>
+
+<div class="account-section">
+    <h2>{{ _('Exercise History') }}</h2>
+    {% if history_count %}
+    <p class="muted">{{ _('Workouts logged: %(count)s.', count=history_count) }}</p>
+    {% else %}
+    <p class="muted">{{ _('No workouts logged yet.') }}</p>
+    {% endif %}
+    <a class="cta secondary" href="{{ url_for('history') }}">{{ _('View & Log Workouts') }}</a>
+</div>
+
+<div class="account-section">
+    <h2>{{ _('Email Address') }}</h2>
+    <form class="contact-form" method="post" action="{{ url_for('account_change_email') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label for="email">{{ _('Email') }}</label>
+        <input type="email" id="email" name="email" value="{{ current_user.email }}" required>
+        {% if has_password %}
+        <label for="email-current-password">{{ _('Current Password') }}</label>
+        <input type="password" id="email-current-password" name="current_password" required>
+        {% endif %}
+        <button type="submit">{{ _('Update Email') }}</button>
+    </form>
+</div>
+
+<div class="account-section">
+    <h2>{{ _('Password') }}</h2>
+    <form class="contact-form" method="post" action="{{ url_for('account_change_password') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        {% if has_password %}
+        <label for="current-password">{{ _('Current Password') }}</label>
+        <input type="password" id="current-password" name="current_password" required>
+        {% endif %}
+        <label for="new-password">{{ _('New Password') }}</label>
+        <input type="password" id="new-password" name="new_password" minlength="8" required>
+        <p class="muted">{{ _('At least 8 characters.') }}</p>
+        <button type="submit">{{ _('Set a password') if not has_password else _('Update Password') }}</button>
+    </form>
+</div>
+
+{% if provider_label %}
+<div class="account-section">
+    <h2>{{ _('Connected Accounts') }}</h2>
+    {% if has_password %}
+    <p class="muted">{{ _('Your account is connected to %(provider)s.', provider=provider_label) }}</p>
+    <form method="post" action="{{ url_for('account_disconnect_sso') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <button type="submit" class="cta secondary">{{ _('Disconnect %(provider)s', provider=provider_label) }}</button>
+    </form>
+    {% else %}
+    <p class="muted">
+        {{ _('Your account is connected to %(provider)s. Set a password above first so you can still log in after disconnecting.', provider=provider_label) }}
+    </p>
+    {% endif %}
+</div>
+{% endif %}
+
+<div class="account-section">
+    <h2>{{ _('Your Data') }}</h2>
+    <p class="muted">{{ _('Download a copy of your account data.') }}</p>
+    <a class="cta secondary" href="{{ url_for('account_export') }}">{{ _('Export My Data') }}</a>
+</div>
+
+<div class="account-section account-danger">
+    <h2>{{ _('Delete Account') }}</h2>
+    <p class="muted">{{ _('This permanently deletes your account. This cannot be undone.') }}</p>
+    <form class="contact-form" method="post" action="{{ url_for('account_delete') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label for="confirm-email">{{ _('Type your email address (%(email)s) to confirm', email=current_user.email) }}</label>
+        <input type="email" id="confirm-email" name="confirm_email" required>
+        {% if has_password %}
+        <label for="delete-current-password">{{ _('Current Password') }}</label>
+        <input type="password" id="delete-current-password" name="current_password" required>
+        {% endif %}
+        <button type="submit" class="cta danger">{{ _('Delete My Account') }}</button>
+    </form>
+</div>
+{% endblock %}

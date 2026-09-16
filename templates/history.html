@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Exercise History') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">📒 {{ _('Your workouts, logged') }}</span>
+<h1>{{ _('Exercise History') }}</h1>
+<p class="page-lead">
+    {{ _('Log any exercise you complete — from a plan here or anywhere else —') }}
+    <strong>{{ _('and build a record over time.') }}</strong>
+</p>
+
+<div class="account-section">
+    <h2>{{ _('Log a Workout') }}</h2>
+    <form class="contact-form" method="post" action="{{ url_for('history_add') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <label for="exercise_name">{{ _('Exercise') }}</label>
+        <input type="text" id="exercise_name" name="exercise_name" list="exercise-suggestions"
+               placeholder="{{ _('e.g. Goblet squats') }}" required>
+        <datalist id="exercise-suggestions">
+            {% for suggestion in exercise_suggestions %}
+            <option value="{{ suggestion }}"></option>
+            {% endfor %}
+        </datalist>
+
+        <label for="performed_on">{{ _('Date') }}</label>
+        <input type="date" id="performed_on" name="performed_on" value="{{ today }}" max="{{ today }}">
+
+        <div class="input-row">
+            <div>
+                <label for="sets">{{ _('Sets') }}</label>
+                <input type="number" id="sets" name="sets" min="0" step="1" placeholder="{{ _('optional') }}">
+            </div>
+            <div>
+                <label for="reps">{{ _('Reps') }}</label>
+                <input type="number" id="reps" name="reps" min="0" step="1" placeholder="{{ _('optional') }}">
+            </div>
+            <div>
+                <label for="weight">{{ _('Weight (kg)') if unit_system == 'metric' else _('Weight (lb)') }}</label>
+                <input type="number" id="weight" name="weight" min="0" step="0.1" placeholder="{{ _('optional') }}">
+            </div>
+            <div>
+                <label for="duration_minutes">{{ _('Duration (min)') }}</label>
+                <input type="number" id="duration_minutes" name="duration_minutes" min="0" step="1" placeholder="{{ _('optional') }}">
+            </div>
+        </div>
+
+        <label for="notes">{{ _('Notes (optional)') }}</label>
+        <input type="text" id="notes" name="notes" maxlength="500" placeholder="{{ _('How did it feel?') }}">
+
+        <button type="submit">{{ _('Log It') }}</button>
+    </form>
+</div>
+
+<div class="account-section">
+    <h2>{{ _('Past Entries') }}</h2>
+    {% if entries %}
+    <p class="muted">{{ _('Total logged: %(count)s.', count=total_count) }}</p>
+    <div class="history-list">
+        {% for entry in entries %}
+        <div class="history-entry">
+            <div class="history-entry-main">
+                <strong>{{ entry.exercise_name }}</strong>
+                <span class="muted">{{ entry.performed_on.strftime("%Y-%m-%d") }}</span>
+            </div>
+            <div class="history-entry-details muted">
+                {% if entry.sets and entry.reps %}{{ _('%(sets)s x %(reps)s', sets=entry.sets, reps=entry.reps) }}{% endif %}
+                {% if entry.weight_display %} &middot; {{ entry.weight_display }}{% endif %}
+                {% if entry.duration_minutes %} &middot; {{ _('%(min)s min', min=entry.duration_minutes) }}{% endif %}
+                {% if entry.notes %} &middot; {{ entry.notes }}{% endif %}
+            </div>
+            <form method="post" action="{{ url_for('history_delete', entry_id=entry.id) }}" data-confirm="{{ _('Delete this entry?') }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="cta danger small">{{ _('Delete') }}</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if pagination.pages > 1 %}
+    <div class="history-pagination">
+        {% if pagination.has_prev %}
+        <a class="cta secondary small" href="{{ url_for('history', page=pagination.prev_num) }}">{{ _('Previous') }}</a>
+        {% endif %}
+        <span class="muted">{{ _('Page %(page)s of %(pages)s', page=pagination.page, pages=pagination.pages) }}</span>
+        {% if pagination.has_next %}
+        <a class="cta secondary small" href="{{ url_for('history', page=pagination.next_num) }}">{{ _('Next') }}</a>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% else %}
+    <p class="muted">{{ _('Nothing logged yet — use the form above after your next workout.') }}</p>
+    {% endif %}
+</div>
+{% endblock %}

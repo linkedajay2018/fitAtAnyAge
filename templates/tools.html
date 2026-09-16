@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Tools') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">📏 {{ _('Know your numbers') }}</span>
+<h1>{{ _('Fitness Tools') }}</h1>
+<p class="page-lead">{{ _('Quick calculators to help guide your training —') }} <strong>{{ _('know your numbers, own your progress') }}</strong>.</p>
+
+<div class="unit-switcher">
+    <label class="visually-hidden" for="unit-select">{{ _('Units') }}</label>
+    <select id="unit-select" data-nav-select>
+        <option value="{{ url_for('set_units', system='metric') }}" {% if unit_system == 'metric' %}selected{% endif %}>{{ _('Metric (kg, cm)') }}</option>
+        <option value="{{ url_for('set_units', system='imperial') }}" {% if unit_system == 'imperial' %}selected{% endif %}>{{ _('Imperial (lb, ft/in)') }}</option>
+    </select>
+</div>
+
+<div class="tools-grid">
+    <div class="tool-card">
+        <h2>📏 {{ _('BMI Calculator') }}</h2>
+        <form id="bmi-form" data-unit-system="{{ unit_system }}">
+            {% if unit_system == 'imperial' %}
+            <label for="bmi-height-ft">{{ _('Height (ft, in)') }}</label>
+            <div class="input-pair">
+                <input type="number" id="bmi-height-ft" min="0" step="1" placeholder="{{ _('ft') }}">
+                <input type="number" id="bmi-height-in" min="0" max="11" step="1" placeholder="{{ _('in') }}">
+            </div>
+
+            <label for="bmi-weight-lb">{{ _('Weight (lb)') }}</label>
+            <input type="number" id="bmi-weight-lb" min="0" step="0.1" placeholder="{{ _('e.g. 165') }}">
+            {% else %}
+            <label for="bmi-height">{{ _('Height (cm)') }}</label>
+            <input type="number" id="bmi-height" min="0" step="0.1" placeholder="{{ _('e.g. 170') }}">
+
+            <label for="bmi-weight">{{ _('Weight (kg)') }}</label>
+            <input type="number" id="bmi-weight" min="0" step="0.1" placeholder="{{ _('e.g. 75') }}">
+            {% endif %}
+
+            <label for="bmi-age">{{ _('Age (optional)') }}</label>
+            <input type="number" id="bmi-age" min="1" max="120" step="1" placeholder="{{ _('e.g. 45') }}">
+
+            <label for="bmi-sex">{{ _('Sex (optional)') }}</label>
+            <select id="bmi-sex">
+                <option value="">{{ _('Prefer not to say') }}</option>
+                <option value="male">{{ _('Male') }}</option>
+                <option value="female">{{ _('Female') }}</option>
+            </select>
+
+            <button type="submit">{{ _('Calculate') }}</button>
+        </form>
+        <p id="bmi-result" class="tool-result"></p>
+        <p class="muted">
+            {{ _("BMI itself is calculated the same way regardless of sex — it's just weight and height. Add your age and sex above and we'll also estimate body fat percentage (Deurenberg formula), which does account for the difference — women typically carry more body fat than men at the same BMI. Both are estimates, not diagnoses, and the body fat formula is less accurate for very muscular people.") }}
+        </p>
+    </div>
+
+    <div class="tool-card">
+        <h2>❤️ {{ _('Target Heart Rate Zones') }}</h2>
+        <form id="hr-form">
+            <label for="hr-age">{{ _('Age') }}</label>
+            <input type="number" id="hr-age" min="1" max="120" step="1" placeholder="{{ _('e.g. 45') }}">
+
+            <button type="submit">{{ _('Calculate') }}</button>
+        </form>
+        <p id="hr-result" class="tool-result"></p>
+        <p class="muted">
+            {{ _("Uses the common \"220 minus age\" formula for estimated maximum heart rate — a general estimate, not a measurement; actual max heart rate varies by individual. If you take heart-rate-affecting medication or have a heart condition, ask your doctor for a personalized target.") }}
+        </p>
+    </div>
+
+    <div class="tool-card">
+        <h2>🔥 {{ _('Daily Calorie Needs') }}</h2>
+        <form id="tdee-form" data-unit-system="{{ unit_system }}">
+            {% if unit_system == 'imperial' %}
+            <label for="tdee-height-ft">{{ _('Height (ft, in)') }}</label>
+            <div class="input-pair">
+                <input type="number" id="tdee-height-ft" min="0" step="1" placeholder="{{ _('ft') }}">
+                <input type="number" id="tdee-height-in" min="0" max="11" step="1" placeholder="{{ _('in') }}">
+            </div>
+
+            <label for="tdee-weight-lb">{{ _('Weight (lb)') }}</label>
+            <input type="number" id="tdee-weight-lb" min="0" step="0.1" placeholder="{{ _('e.g. 165') }}">
+            {% else %}
+            <label for="tdee-height">{{ _('Height (cm)') }}</label>
+            <input type="number" id="tdee-height" min="0" step="0.1" placeholder="{{ _('e.g. 170') }}">
+
+            <label for="tdee-weight">{{ _('Weight (kg)') }}</label>
+            <input type="number" id="tdee-weight" min="0" step="0.1" placeholder="{{ _('e.g. 75') }}">
+            {% endif %}
+
+            <label for="tdee-age">{{ _('Age') }}</label>
+            <input type="number" id="tdee-age" min="1" max="120" step="1" placeholder="{{ _('e.g. 45') }}">
+
+            <label for="tdee-sex">{{ _('Sex (optional)') }}</label>
+            <select id="tdee-sex">
+                <option value="">{{ _('Prefer not to say') }}</option>
+                <option value="male">{{ _('Male') }}</option>
+                <option value="female">{{ _('Female') }}</option>
+            </select>
+
+            <label for="tdee-activity">{{ _('Activity Level') }}</label>
+            <select id="tdee-activity">
+                <option value="1.2">{{ _('Sedentary (little or no exercise)') }}</option>
+                <option value="1.375">{{ _('Light (exercise 1–3 days/week)') }}</option>
+                <option value="1.55" selected>{{ _('Moderate (exercise 3–5 days/week)') }}</option>
+                <option value="1.725">{{ _('Active (exercise 6–7 days/week)') }}</option>
+                <option value="1.9">{{ _('Very active (hard exercise, physical job)') }}</option>
+            </select>
+
+            <button type="submit">{{ _('Calculate') }}</button>
+        </form>
+        <p id="tdee-result" class="tool-result"></p>
+        <p class="muted">
+            {{ _("Uses the Mifflin-St Jeor equation, a standard estimate of daily calorie needs — not a prescription. Individual needs vary; check with a doctor or registered dietitian before making major dietary changes, especially if you have a medical condition.") }}
+        </p>
+    </div>
+
+    <div class="tool-card">
+        <h2>🏋️ {{ _('1-Rep Max Estimator') }}</h2>
+        <form id="orm-form" data-unit-system="{{ unit_system }}">
+            {% if unit_system == 'imperial' %}
+            <label for="orm-weight">{{ _('Weight Lifted (lb)') }}</label>
+            <input type="number" id="orm-weight" min="0" step="0.5" placeholder="{{ _('e.g. 135') }}">
+            {% else %}
+            <label for="orm-weight">{{ _('Weight Lifted (kg)') }}</label>
+            <input type="number" id="orm-weight" min="0" step="0.5" placeholder="{{ _('e.g. 60') }}">
+            {% endif %}
+
+            <label for="orm-reps">{{ _('Reps Completed') }}</label>
+            <input type="number" id="orm-reps" min="1" max="15" step="1" placeholder="{{ _('e.g. 8') }}">
+
+            <button type="submit">{{ _('Calculate') }}</button>
+        </form>
+        <p id="orm-result" class="tool-result"></p>
+        <div id="orm-table"></div>
+        <p class="muted">
+            {{ _("Uses the Epley formula to estimate a one-rep max from a lighter, higher-rep set — most accurate under about 10–12 reps. This is a training estimate, not a number to attempt untested; work up to any new max carefully, ideally with a spotter.") }}
+        </p>
+    </div>
+
+    <div class="tool-card">
+        <h2>📐 {{ _('Waist-to-Hip Ratio') }}</h2>
+        <form id="whr-form" data-unit-system="{{ unit_system }}">
+            {% if unit_system == 'imperial' %}
+            <label for="whr-waist">{{ _('Waist (in)') }}</label>
+            <input type="number" id="whr-waist" min="0" step="0.1" placeholder="{{ _('e.g. 34') }}">
+
+            <label for="whr-hip">{{ _('Hips (in)') }}</label>
+            <input type="number" id="whr-hip" min="0" step="0.1" placeholder="{{ _('e.g. 40') }}">
+            {% else %}
+            <label for="whr-waist">{{ _('Waist (cm)') }}</label>
+            <input type="number" id="whr-waist" min="0" step="0.1" placeholder="{{ _('e.g. 86') }}">
+
+            <label for="whr-hip">{{ _('Hips (cm)') }}</label>
+            <input type="number" id="whr-hip" min="0" step="0.1" placeholder="{{ _('e.g. 102') }}">
+            {% endif %}
+
+            <label for="whr-sex">{{ _('Sex (optional)') }}</label>
+            <select id="whr-sex">
+                <option value="">{{ _('Prefer not to say') }}</option>
+                <option value="male">{{ _('Male') }}</option>
+                <option value="female">{{ _('Female') }}</option>
+            </select>
+
+            <button type="submit">{{ _('Calculate') }}</button>
+        </form>
+        <p id="whr-result" class="tool-result"></p>
+        <p class="muted">
+            {{ _("Unlike BMI, waist-to-hip ratio uses different risk categories for men and women — measure your waist just above the belly button, and your hips at their widest point. A general health indicator, not a diagnosis.") }}
+        </p>
+    </div>
+</div>
+{% endblock %}

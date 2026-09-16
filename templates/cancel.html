@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Payment Cancelled') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>{{ _('Checkout Cancelled') }}</h1>
+    <p><strong>{{ _('No charge was made.') }}</strong> {{ _("You can try again anytime — we'll be here.") }}</p>
+    <a class="cta" href="{{ url_for('membership') }}">{{ _('Back to Membership') }}</a>
+</div>
+{% endblock %}

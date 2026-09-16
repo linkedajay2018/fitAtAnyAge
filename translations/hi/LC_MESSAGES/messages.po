@@ -1,0 +1,2491 @@
+# Hindi translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-09-15 20:15+0530\n"
+"PO-Revision-Date: 2026-09-15 15:01+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: hi <LL@li.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app.py:117
+msgid "Please log in to continue."
+msgstr "कृपया जारी रखने के लिए लॉग इन करें।"
+
+#: app.py:176
+msgid "Enter a valid height and weight."
+msgstr "सही ऊंचाई और वज़न दर्ज करें।"
+
+#: app.py:177
+#, python-format
+msgid "Your BMI is %(bmi)s (%(category)s)"
+msgstr "आपका BMI %(bmi)s है (%(category)s)"
+
+#: app.py:178
+#, python-format
+msgid "Your BMI is %(bmi)s (%(category)s). Estimated body fat: %(bodyfat)s%."
+msgstr "आपका BMI %(bmi)s है (%(category)s)। अनुमानित बॉडी फैट: %(bodyfat)s%।"
+
+#: app.py:179
+msgid "Underweight"
+msgstr "कम वज़न"
+
+#: app.py:180
+msgid "Healthy range"
+msgstr "स्वस्थ सीमा"
+
+#: app.py:181
+msgid "Overweight"
+msgstr "अधिक वज़न"
+
+#: app.py:182
+msgid "Obese"
+msgstr "मोटापा"
+
+#: app.py:183
+msgid "Enter a valid age."
+msgstr "सही उम्र दर्ज करें।"
+
+#: app.py:185
+#, python-format
+msgid ""
+"Estimated max heart rate: %(max)s bpm. Moderate zone: %(modLow)s–%(modHigh)s"
+" bpm. Vigorous zone: %(vigLow)s–%(vigHigh)s bpm."
+msgstr ""
+"अनुमानित अधिकतम हृदय गति: %(max)s bpm। मध्यम ज़ोन: %(modLow)s–%(modHigh)s "
+"bpm। तीव्र ज़ोन: %(vigLow)s–%(vigHigh)s bpm।"
+
+#: app.py:188
+msgid "Enter a valid height, weight, and age."
+msgstr "सही ऊंचाई, वज़न, और उम्र दर्ज करें।"
+
+#: app.py:189
+#, python-format
+msgid ""
+"Estimated maintenance calories: %(tdee)s kcal/day (basal: %(bmr)s kcal/day)."
+msgstr "अनुमानित रखरखाव कैलोरी: %(tdee)s kcal/दिन (बेसल: %(bmr)s kcal/दिन)।"
+
+#: app.py:190
+msgid "Enter a valid weight and reps (1–15)."
+msgstr "सही वज़न और रेप्स (1–15) दर्ज करें।"
+
+#: app.py:191
+#, python-format
+msgid "Estimated one-rep max: %(orm)s kg"
+msgstr "अनुमानित वन-रेप मैक्स: %(orm)s किलो"
+
+#: app.py:192
+#, python-format
+msgid "Estimated one-rep max: %(orm)s lb"
+msgstr "अनुमानित वन-रेप मैक्स: %(orm)s पाउंड"
+
+#: app.py:193
+msgid "Percent of 1RM"
+msgstr "1RM का प्रतिशत"
+
+#: app.py:194 templates/tools.html:33 templates/tools.html:85
+msgid "Weight (kg)"
+msgstr "वज़न (किलो)"
+
+#: app.py:195 templates/tools.html:27 templates/tools.html:79
+msgid "Weight (lb)"
+msgstr "वज़न (पाउंड)"
+
+#: app.py:196
+msgid "Enter a valid waist and hip measurement."
+msgstr "सही कमर और कूल्हे का माप दर्ज करें।"
+
+#: app.py:197
+#, python-format
+msgid "Waist-to-hip ratio: %(ratio)s"
+msgstr "कमर-से-कूल्हे अनुपात: %(ratio)s"
+
+#: app.py:198
+#, python-format
+msgid "Waist-to-hip ratio: %(ratio)s (%(risk)s risk)"
+msgstr "कमर-से-कूल्हे अनुपात: %(ratio)s (%(risk)s जोखिम)"
+
+#: app.py:199
+msgid "low"
+msgstr "कम"
+
+#: app.py:200
+msgid "moderate"
+msgstr "मध्यम"
+
+#: app.py:201
+msgid "high"
+msgstr "ज़्यादा"
+
+#: app.py:202
+#, python-format
+msgid "In your %(age)s — %(headline)s. %(blurb)s"
+msgstr "%(age)s की उम्र में — %(headline)s। %(blurb)s"
+
+#: app.py:203
+msgid "Something went wrong — please try again."
+msgstr "कुछ गड़बड़ हो गई — कृपया फिर से कोशिश करें।"
+
+#: app.py:204
+msgid "Sorry, I couldn't process that."
+msgstr "माफ़ करें, मैं इसे समझ नहीं पाया।"
+
+#: app.py:392 chatbot.py:20
+msgid "Ask me something about training, diet, or hydration!"
+msgstr "मुझसे ट्रेनिंग, डाइट, या हाइड्रेशन के बारे में कुछ पूछें!"
+
+#: app.py:447
+msgid "Payments aren't configured yet. See .env.example for Stripe setup."
+msgstr ""
+"भुगतान अभी सेट नहीं किया गया है। Stripe सेटअप के लिए .env.example देखें।"
+
+#: app.py:465
+#, python-format
+msgid "Could not start checkout: %(error)s"
+msgstr "चेकआउट शुरू नहीं हो सका: %(error)s"
+
+#: app.py:509 app.py:754 app.py:916
+msgid "Enter a valid email address."
+msgstr "सही ईमेल पता दर्ज करें।"
+
+#: app.py:511 app.py:587 app.py:777
+msgid "Password must be at least 8 characters."
+msgstr "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए।"
+
+#: app.py:513 app.py:758
+msgid "An account with that email already exists."
+msgstr "इस ईमेल से पहले से एक खाता मौजूद है।"
+
+#: app.py:521
+#, python-format
+msgid "Welcome to %(site_name)s!"
+msgstr "%(site_name)s में आपका स्वागत है!"
+
+#: app.py:522
+#, python-format
+msgid "We've sent a verification link to %(email)s."
+msgstr "हमने %(email)s पर एक सत्यापन लिंक भेज दिया है।"
+
+#: app.py:544
+msgid "Logged in."
+msgstr "लॉग इन हो गया।"
+
+#: app.py:547
+msgid "Invalid email or password."
+msgstr "गलत ईमेल या पासवर्ड।"
+
+#: app.py:567
+msgid "If an account exists for that email, we've sent a password reset link."
+msgstr ""
+"अगर उस ईमेल से कोई खाता मौजूद है, तो हमने एक पासवर्ड रीसेट लिंक भेज दिया है।"
+
+#: app.py:581
+msgid "That password reset link is invalid or has expired. Request a new one."
+msgstr ""
+"यह पासवर्ड रीसेट लिंक अमान्य है या समय सीमा समाप्त हो गई है। नया लिंक "
+"मंगाएं।"
+
+#: app.py:594
+msgid "Your password has been reset. Log in with your new password."
+msgstr "आपका पासवर्ड रीसेट कर दिया गया है। अपने नए पासवर्ड से लॉग इन करें।"
+
+#: app.py:604
+msgid "That verification link is invalid or has expired."
+msgstr "यह सत्यापन लिंक अमान्य है या समय सीमा समाप्त हो गई है।"
+
+#: app.py:613
+msgid "Your email has been verified — thanks!"
+msgstr "आपका ईमेल सत्यापित हो गया है — धन्यवाद!"
+
+#: app.py:622
+msgid "Your email is already verified."
+msgstr "आपका ईमेल पहले से सत्यापित है।"
+
+#: app.py:625
+#, python-format
+msgid "We've sent a new verification link to %(email)s."
+msgstr "हमने %(email)s पर एक नया सत्यापन लिंक भेज दिया है।"
+
+#: app.py:686
+msgid "Something went wrong signing you in — please try again."
+msgstr "लॉग इन करने में समस्या हुई — कृपया फिर से कोशिश करें।"
+
+#: app.py:693
+#, python-format
+msgid ""
+"We couldn't get an email address from your %(provider)s account. Make sure "
+"your account has a verified email, or use email/password instead."
+msgstr ""
+"हम आपके %(provider)s खाते से ईमेल पता प्राप्त नहीं कर सके। सुनिश्चित करें कि"
+" आपके खाते में सत्यापित ईमेल है, या इसके बजाय ईमेल/पासवर्ड का उपयोग करें।"
+
+#: app.py:705
+#, python-format
+msgid "Logged in with %(provider)s."
+msgstr "%(provider)s से लॉग इन किया गया।"
+
+#: app.py:714
+msgid "Logged out."
+msgstr "लॉग आउट हो गया।"
+
+#: app.py:756 app.py:775 app.py:809
+msgid "Current password is incorrect."
+msgstr "मौजूदा पासवर्ड गलत है।"
+
+#: app.py:764
+#, python-format
+msgid "Email updated. We've sent a verification link to %(email)s."
+msgstr "ईमेल अपडेट किया गया। हमने %(email)s पर एक सत्यापन लिंक भेज दिया है।"
+
+#: app.py:781
+msgid "Password updated."
+msgstr "पासवर्ड अपडेट किया गया।"
+
+#: app.py:791
+msgid "Set a password first so you can still log in after disconnecting."
+msgstr ""
+"डिस्कनेक्ट करने के बाद भी लॉग इन कर सकें, इसके लिए पहले एक पासवर्ड सेट करें।"
+
+#: app.py:795
+msgid "Disconnected."
+msgstr "डिस्कनेक्ट कर दिया गया।"
+
+#: app.py:806
+msgid "Type your email address exactly to confirm deletion."
+msgstr "हटाने की पुष्टि के लिए अपना ईमेल पता बिल्कुल सही टाइप करें।"
+
+#: app.py:817
+msgid "Your account has been deleted."
+msgstr "आपका खाता हटा दिया गया है।"
+
+#: app.py:873
+#, python-format
+msgid "Updated %(email)s's membership."
+msgstr "%(email)s की सदस्यता अपडेट की गई।"
+
+#: app.py:903
+msgid "Message deleted."
+msgstr "संदेश हटा दिया गया।"
+
+#: app.py:914
+msgid "Please fill in both your name and message."
+msgstr "कृपया अपना नाम और संदेश दोनों भरें।"
+
+#: app.py:920
+#, python-format
+msgid "Thanks %(name)s, we received your message!"
+msgstr "धन्यवाद %(name)s, हमें आपका संदेश मिल गया है!"
+
+#: chatbot.py:38
+msgid ""
+"I don't have a specific answer for that one — try browsing Workout Plans, "
+"Diet Plan, or Safety Tips, or send us a message via Contact and we'll help "
+"directly."
+msgstr ""
+"इसका कोई खास जवाब मेरे पास नहीं है — Workout Plans, Diet Plan, या Safety "
+"Tips देखें, या Contact के ज़रिए हमें संदेश भेजें, हम सीधे मदद करेंगे।"
+
+#: content.py:45
+msgid "Beginner"
+msgstr "शुरुआती"
+
+#: content.py:47
+msgid "Build a foundation safely"
+msgstr "सुरक्षित रूप से एक मज़बूत आधार बनाएं"
+
+#: content.py:50
+msgid "Bodyweight squats — 2 x 10"
+msgstr "बॉडीवेट स्क्वैट्स — 2 x 10"
+
+#: content.py:51
+msgid "Wall or knee push-ups — 2 x 8"
+msgstr "वॉल या नी पुश-अप्स — 2 x 8"
+
+#: content.py:52
+msgid "Seated rows (band) — 2 x 12"
+msgstr "सीटेड रोज़ (बैंड) — 2 x 12"
+
+#: content.py:53
+msgid "Glute bridges — 2 x 12"
+msgstr "ग्लूट ब्रिज — 2 x 12"
+
+#: content.py:54
+msgid "Standing balance hold — 2 x 20s per side"
+msgstr "स्टैंडिंग बैलेंस होल्ड — प्रति साइड 2 x 20 सेकंड"
+
+#: content.py:55
+msgid "Gentle walk — 15 min"
+msgstr "हल्की सैर — 15 मिनट"
+
+#: content.py:59
+msgid "Standing balance hold (hand on a chair for support) — 2 x 20s per side"
+msgstr ""
+"स्टैंडिंग बैलेंस होल्ड (सहारे के लिए हाथ कुर्सी पर) — प्रति साइड 2 x 20 "
+"सेकंड"
+
+#: content.py:62
+msgid "Sit-to-stand from a chair — 2 x 8"
+msgstr "कुर्सी से उठकर बैठना — 2 x 8"
+
+#: content.py:63
+msgid "Standing balance hold (hand on a chair for support) — 2 x 15s per side"
+msgstr ""
+"स्टैंडिंग बैलेंस होल्ड (सहारे के लिए हाथ कुर्सी पर) — प्रति साइड 2 x 15 "
+"सेकंड"
+
+#: content.py:64
+msgid "Gentle walk — 10 min"
+msgstr "हल्की सैर — 10 मिनट"
+
+#: content.py:68
+msgid "Squat & Push"
+msgstr "स्क्वैट और पुश"
+
+#: content.py:69
+msgid "Row & Hip Bridge"
+msgstr "रो और हिप ब्रिज"
+
+#: content.py:70
+msgid "Balance & Walk"
+msgstr "बैलेंस और सैर"
+
+#: content.py:75
+msgid "Intermediate"
+msgstr "मध्यम स्तर"
+
+#: content.py:77
+msgid "Strength and joint stability"
+msgstr "ताकत और जोड़ों की स्थिरता"
+
+#: content.py:80
+msgid "Goblet squats — 3 x 10"
+msgstr "गॉबलेट स्क्वैट्स — 3 x 10"
+
+#: content.py:81
+msgid "Dumbbell bench press — 3 x 10"
+msgstr "डम्बल बेंच प्रेस — 3 x 10"
+
+#: content.py:82
+msgid "Bent-over dumbbell rows — 3 x 10"
+msgstr "बेंट-ओवर डम्बल रोज़ — 3 x 10"
+
+#: content.py:83
+msgid "Romanian deadlifts (light) — 3 x 10"
+msgstr "रोमानियन डेडलिफ्ट (हल्का वज़न) — 3 x 10"
+
+#: content.py:84
+msgid "Plank — 3 x 30s"
+msgstr "प्लैंक — 3 x 30 सेकंड"
+
+#: content.py:85
+msgid "Brisk walk or cycling — 20 min"
+msgstr "तेज़ चाल से सैर या साइकिलिंग — 20 मिनट"
+
+#: content.py:89 content.py:92
+msgid "Romanian deadlifts (light, focus on hip-hinge form) — 3 x 8"
+msgstr "रोमानियन डेडलिफ्ट (हल्का वज़न, हिप-हिंज फॉर्म पर ध्यान दें) — 3 x 8"
+
+#: content.py:93
+msgid "Modified plank (on knees, or forearms on a bench) — 3 x 20s"
+msgstr ""
+"संशोधित प्लैंक (घुटनों पर, या बेंच पर कोहनियों के सहारे) — 3 x 20 सेकंड"
+
+#: content.py:96
+msgid "Goblet squats (shallow depth, hold support if needed) — 3 x 8"
+msgstr "गॉबलेट स्क्वैट्स (कम गहराई, ज़रूरत पड़ने पर सहारा लें) — 3 x 8"
+
+#: content.py:97
+msgid "Hip hinge with light dumbbells — 3 x 8"
+msgstr "हल्के डम्बल के साथ हिप हिंज — 3 x 8"
+
+#: content.py:98
+msgid "Modified plank (on knees, or forearms on a bench) — 3 x 15s"
+msgstr ""
+"संशोधित प्लैंक (घुटनों पर, या बेंच पर कोहनियों के सहारे) — 3 x 15 सेकंड"
+
+#: content.py:99
+msgid "Brisk walk or stationary cycling — 15 min"
+msgstr "तेज़ चाल से सैर या स्टेशनरी साइकिलिंग — 15 मिनट"
+
+#: content.py:103 content.py:143
+msgid "Legs"
+msgstr "पैर"
+
+#: content.py:104 content.py:144
+msgid "Upper Push"
+msgstr "अपर पुश"
+
+#: content.py:105
+msgid "Upper Pull & Core"
+msgstr "अपर पुल और कोर"
+
+#: content.py:106
+msgid "Cardio"
+msgstr "कार्डियो"
+
+#: content.py:111
+msgid "Active"
+msgstr "सक्रिय"
+
+#: content.py:113
+msgid "Maintain strength, mobility, and cardio health"
+msgstr "ताकत, गतिशीलता और कार्डियो स्वास्थ्य बनाए रखें"
+
+#: content.py:116
+msgid "Barbell or dumbbell squats — 4 x 8"
+msgstr "बारबेल या डम्बल स्क्वैट्स — 4 x 8"
+
+#: content.py:117
+msgid "Overhead press — 3 x 8"
+msgstr "ओवरहेड प्रेस — 3 x 8"
+
+#: content.py:118
+msgid "Deadlifts (moderate) — 3 x 8"
+msgstr "डेडलिफ्ट (मध्यम वज़न) — 3 x 8"
+
+#: content.py:119
+msgid "Pull-downs or assisted pull-ups — 3 x 10"
+msgstr "पुल-डाउन या असिस्टेड पुल-अप्स — 3 x 10"
+
+#: content.py:120
+msgid "Mobility flow (hips/shoulders) — 10 min"
+msgstr "मोबिलिटी फ्लो (कूल्हे/कंधे) — 10 मिनट"
+
+#: content.py:121
+msgid "Low-impact cardio (swim/bike) — 25 min"
+msgstr "लो-इम्पैक्ट कार्डियो (तैराकी/साइकिल) — 25 मिनट"
+
+#: content.py:125
+msgid "High-intensity interval training (sprints or rowing) — 20 min"
+msgstr "हाई-इंटेंसिटी इंटरवल ट्रेनिंग (स्प्रिंट या रोइंग) — 20 मिनट"
+
+#: content.py:128
+msgid "Deadlifts (moderate, trap bar preferred for easier setup) — 3 x 8"
+msgstr "डेडलिफ्ट (मध्यम वज़न, आसान सेटअप के लिए ट्रैप बार बेहतर) — 3 x 8"
+
+#: content.py:131
+msgid "Dumbbell or goblet squats (moderate load) — 4 x 8"
+msgstr "डम्बल या गॉबलेट स्क्वैट्स (मध्यम वज़न) — 4 x 8"
+
+#: content.py:132
+msgid "Trap bar or kettlebell deadlifts (light-to-moderate) — 3 x 8"
+msgstr "ट्रैप बार या केटलबेल डेडलिफ्ट (हल्के से मध्यम वज़न) — 3 x 8"
+
+#: content.py:133
+msgid "Assisted pull-downs — 3 x 10"
+msgstr "असिस्टेड पुल-डाउन — 3 x 10"
+
+#: content.py:136
+msgid "Dumbbell squats (light-to-moderate load, comfortable range) — 3 x 8"
+msgstr "डम्बल स्क्वैट्स (हल्के से मध्यम वज़न, आरामदायक रेंज में) — 3 x 8"
+
+#: content.py:137
+msgid "Kettlebell deadlifts (light) — 3 x 8"
+msgstr "केटलबेल डेडलिफ्ट (हल्का वज़न) — 3 x 8"
+
+#: content.py:138
+msgid "Seated rows or assisted pull-downs — 3 x 10"
+msgstr "सीटेड रोज़ या असिस्टेड पुल-डाउन — 3 x 10"
+
+#: content.py:139
+msgid "Low-impact cardio (swim, bike, or brisk walk) — 20 min"
+msgstr "लो-इम्पैक्ट कार्डियो (तैराकी, साइकिल, या तेज़ चाल से सैर) — 20 मिनट"
+
+#: content.py:145
+msgid "Upper Pull"
+msgstr "अपर पुल"
+
+#: content.py:146
+msgid "Posterior Chain"
+msgstr "पोस्टीरियर चेन"
+
+#: content.py:147
+msgid "Mobility & Cardio"
+msgstr "मोबिलिटी और कार्डियो"
+
+#: content.py:156
+msgid "Strong today. Stronger tomorrow."
+msgstr "आज मज़बूत। कल और मज़बूत।"
+
+#: content.py:157
+msgid "Your best age to start is now."
+msgstr "शुरू करने की सबसे अच्छी उम्र अभी है।"
+
+#: content.py:158
+msgid "Every rep counts — begin today."
+msgstr "हर रेप मायने रखता है — आज ही शुरू करें।"
+
+#: content.py:159
+msgid "Consistency beats intensity, every time."
+msgstr "निरंतरता हमेशा तीव्रता पर भारी पड़ती है।"
+
+#: content.py:160
+msgid "Small steps, real strength."
+msgstr "छोटे कदम, असली ताकत।"
+
+#: content.py:161
+msgid "Age is a number. Effort is a choice."
+msgstr "उम्र सिर्फ एक नंबर है। मेहनत एक चुनाव है।"
+
+#: content.py:162
+msgid "The only bad workout is the one you skipped."
+msgstr "सबसे बुरी वर्कआउट वही है जो आपने छोड़ दी।"
+
+#: content.py:163
+msgid "You don't have to be great to start — you have to start to be great."
+msgstr ""
+"शुरू करने के लिए महान होना ज़रूरी नहीं — महान बनने के लिए शुरू करना ज़रूरी "
+"है।"
+
+#: content.py:164
+msgid "Progress, not perfection."
+msgstr "प्रगति, पूर्णता नहीं।"
+
+#: content.py:165
+msgid "Show up. That's the hardest part, and you just did."
+msgstr "हाज़िर होना ही सबसे मुश्किल हिस्सा है, और आपने अभी वही किया।"
+
+#: content.py:166
+msgid "Your future self is already proud of you."
+msgstr "आपका भविष्य का स्वरूप पहले से ही आप पर गर्व महसूस कर रहा है।"
+
+#: content.py:167
+msgid "Discipline today, freedom tomorrow."
+msgstr "आज अनुशासन, कल आज़ादी।"
+
+#: content.py:168
+msgid "Strength has no expiration date."
+msgstr "ताकत की कोई समय-सीमा नहीं होती।"
+
+#: content.py:169
+msgid "Move today, thank yourself tomorrow."
+msgstr "आज कसरत करें, कल खुद को धन्यवाद दें।"
+
+#: content.py:170
+msgid "One workout won't transform you — but it starts the one that will."
+msgstr ""
+"एक वर्कआउट आपको नहीं बदलेगी — लेकिन यह उस सिलसिले की शुरुआत करती है जो बदल "
+"देगा।"
+
+#: content.py:171
+msgid "The best time to start was yesterday. The next best time is now."
+msgstr "शुरू करने का सबसे अच्छा समय कल था। अगला सबसे अच्छा समय अभी है।"
+
+#: content.py:172
+msgid "Every decade deserves its own strongest version of you."
+msgstr "हर दशक आपके सबसे मज़बूत रूप का हकदार है।"
+
+#: content.py:173
+msgid "You're one workout away from a better mood."
+msgstr "एक बेहतर मूड सिर्फ एक वर्कआउट दूर है।"
+
+#: content.py:174
+msgid "Fitness isn't a phase — it's a lifelong habit worth building."
+msgstr ""
+"फिटनेस कोई अस्थायी दौर नहीं — यह जीवन भर की एक आदत है जिसे बनाना ज़रूरी है।"
+
+#: content.py:175
+msgid "Nobody ever regretted a workout."
+msgstr "किसी को भी वर्कआउट करने का पछतावा कभी नहीं हुआ।"
+
+#: content.py:180
+msgid "Always warm up for 5-10 minutes before any workout."
+msgstr "किसी भी वर्कआउट से पहले हमेशा 5-10 मिनट वार्म अप करें।"
+
+#: content.py:181
+msgid "Stay hydrated and don't skip protein — it supports muscle maintenance."
+msgstr ""
+"हाइड्रेटेड रहें और प्रोटीन न छोड़ें — यह मांसपेशियों को बनाए रखने में मदद "
+"करता है।"
+
+#: content.py:182
+msgid ""
+"Check with a doctor before starting if you have any existing conditions."
+msgstr ""
+"अगर आपको कोई मौजूदा स्वास्थ्य समस्या है, तो शुरू करने से पहले डॉक्टर से सलाह"
+" लें।"
+
+#: content.py:202
+msgid "Build strength and lifelong habits"
+msgstr "ताकत और जीवन भर चलने वाली आदतें बनाएं"
+
+#: content.py:203
+msgid ""
+"Recovery is fastest now — a great time to build a strength habit and learn "
+"good form that pays off for decades."
+msgstr ""
+"रिकवरी अभी सबसे तेज़ है — ताकत की आदत बनाने और सही फॉर्म सीखने का बेहतरीन "
+"समय, जिसका फायदा दशकों तक मिलेगा।"
+
+#: content.py:205
+msgid "Learn proper form early — it prevents injuries for decades to come."
+msgstr "शुरू से ही सही फॉर्म सीखें — यह आने वाले दशकों तक चोटों से बचाता है।"
+
+#: content.py:206
+msgid ""
+"Don't skip warm-ups just because you recover fast; they still protect your "
+"joints long-term."
+msgstr ""
+"सिर्फ इसलिए वार्म-अप न छोड़ें क्योंकि आप जल्दी रिकवर हो जाते हैं; यह फिर भी "
+"लंबे समय में आपके जोड़ों की सुरक्षा करता है।"
+
+#: content.py:207
+msgid "Balance intense training with adequate sleep and real recovery days."
+msgstr ""
+"तीव्र ट्रेनिंग के साथ पर्याप्त नींद और असली रिकवरी दिनों को संतुलित करें।"
+
+#: content.py:212
+msgid "Stay consistent as life gets busier"
+msgstr "जीवन व्यस्त होने पर भी निरंतर बने रहें"
+
+#: content.py:213
+msgid ""
+"Recovery starts slowing slightly. Prioritize consistency over intensity — "
+"three solid sessions a week beats sporadic hard ones."
+msgstr ""
+"रिकवरी थोड़ी धीमी होने लगती है। तीव्रता से ज़्यादा निरंतरता को प्राथमिकता "
+"दें — हफ्ते में तीन ठोस सेशन कभी-कभार के कठिन सेशनों से बेहतर हैं।"
+
+#: content.py:215
+msgid ""
+"Fit in shorter, consistent sessions rather than skipping workouts when busy."
+msgstr "व्यस्त होने पर वर्कआउट छोड़ने के बजाय छोटे, नियमित सेशन करें।"
+
+#: content.py:216
+msgid "Add mobility work now to offset more sitting and desk time."
+msgstr ""
+"ज़्यादा बैठने और डेस्क पर बिताए समय की भरपाई के लिए अभी से मोबिलिटी वर्क "
+"जोड़ें।"
+
+#: content.py:217
+msgid "Progress weights gradually rather than jumping too fast, too soon."
+msgstr "वज़न बहुत जल्दी न बढ़ाएं, धीरे-धीरे बढ़ाएं।"
+
+#: content.py:222
+msgid "Protect joints while maintaining strength"
+msgstr "ताकत बनाए रखते हुए जोड़ों की सुरक्षा करें"
+
+#: content.py:223
+msgid ""
+"Joints and tendons recover more slowly now. Prioritize form, mobility, and "
+"rest between strength sessions."
+msgstr ""
+"जोड़ और टेंडन अब धीरे रिकवर होते हैं। फॉर्म, मोबिलिटी और ताकत के सेशनों के "
+"बीच आराम को प्राथमिकता दें।"
+
+#: content.py:225
+msgid "Prioritize form over weight — joints and tendons recover slower now."
+msgstr ""
+"वज़न से ज़्यादा फॉर्म को प्राथमिकता दें — जोड़ और टेंडन अब धीरे रिकवर होते "
+"हैं।"
+
+#: content.py:226
+msgid "Add mobility and stretching work to every session."
+msgstr "हर सेशन में मोबिलिटी और स्ट्रेचिंग शामिल करें।"
+
+#: content.py:227
+msgid "Include 1-2 full rest days per week for recovery."
+msgstr "रिकवरी के लिए हफ्ते में 1-2 पूरे आराम के दिन शामिल करें।"
+
+#: content.py:232
+msgid "Build bone density and preserve muscle"
+msgstr "हड्डियों का घनत्व बढ़ाएं और मांसपेशियां बनाए रखें"
+
+#: content.py:233
+msgid ""
+"Strength training becomes important for bone density and metabolic health, "
+"and balance work starts to matter more."
+msgstr ""
+"हड्डियों के घनत्व और मेटाबॉलिक स्वास्थ्य के लिए स्ट्रेंथ ट्रेनिंग ज़रूरी हो "
+"जाती है, और बैलेंस वर्क का महत्व भी बढ़ने लगता है।"
+
+#: content.py:235
+msgid "Include weight-bearing exercises to support bone density."
+msgstr "हड्डियों के घनत्व के लिए वेट-बेयरिंग एक्सरसाइज़ शामिल करें।"
+
+#: content.py:236
+msgid ""
+"Add balance exercises — they become more valuable each decade from here."
+msgstr ""
+"बैलेंस एक्सरसाइज़ जोड़ें — अब हर दशक के साथ इनकी अहमियत बढ़ती जाती है।"
+
+#: content.py:237
+msgid ""
+"Get a doctor's clearance first if you have any cardiovascular or joint "
+"conditions."
+msgstr ""
+"अगर आपको हृदय या जोड़ों से जुड़ी कोई समस्या है, तो पहले डॉक्टर से मंज़ूरी "
+"लें।"
+
+#: content.py:242
+msgid "Maintain strength, balance, and independence"
+msgstr "ताकत, संतुलन और आत्मनिर्भरता बनाए रखें"
+
+#: content.py:243
+msgid ""
+"Functional strength and fall prevention take priority. Lower-impact options "
+"protect joints while keeping you strong."
+msgstr ""
+"फंक्शनल ताकत और गिरने से बचाव को प्राथमिकता दें। कम-असर वाले विकल्प जोड़ों "
+"की सुरक्षा करते हुए आपको मज़बूत बनाए रखते हैं।"
+
+#: content.py:245
+msgid ""
+"Prioritize balance and functional movements that mirror daily activities."
+msgstr ""
+"बैलेंस और उन फंक्शनल मूवमेंट्स को प्राथमिकता दें जो रोज़मर्रा की गतिविधियों "
+"जैसे हों।"
+
+#: content.py:246
+msgid ""
+"Choose low-impact cardio (walking, swimming, cycling) over high-impact "
+"options."
+msgstr ""
+"ज़्यादा असर वाले विकल्पों की बजाय कम-असर वाला कार्डियो (पैदल चलना, तैराकी, "
+"साइकिलिंग) चुनें।"
+
+#: content.py:247
+msgid ""
+"Warm up longer than you think you need — 10 minutes is a good starting "
+"point."
+msgstr ""
+"जितना ज़रूरी लगे उससे ज़्यादा देर वार्म अप करें — 10 मिनट एक अच्छी शुरुआत "
+"है।"
+
+#: content.py:252
+msgid "Stay mobile, steady, and independent"
+msgstr "गतिशील, स्थिर और आत्मनिर्भर बने रहें"
+
+#: content.py:253
+msgid ""
+"Consistency and safety matter more than intensity. Always get medical "
+"clearance before starting or changing a routine."
+msgstr ""
+"निरंतरता और सुरक्षा तीव्रता से ज़्यादा मायने रखती हैं। रूटीन शुरू करने या "
+"बदलने से पहले हमेशा चिकित्सीय मंज़ूरी लें।"
+
+#: content.py:255
+msgid ""
+"Get medical clearance before starting or significantly changing your "
+"routine."
+msgstr ""
+"अपनी दिनचर्या शुरू करने या उसमें बड़ा बदलाव करने से पहले चिकित्सीय मंज़ूरी "
+"लें।"
+
+#: content.py:256
+msgid ""
+"Favor seated or supported variations of exercises where balance is a "
+"concern."
+msgstr ""
+"जहां संतुलन की चिंता हो, वहां बैठकर या सहारे वाली एक्सरसाइज़ को प्राथमिकता "
+"दें।"
+
+#: content.py:257
+msgid ""
+"Stop any exercise that causes pain — mild fatigue is fine, pain is not."
+msgstr ""
+"दर्द होने पर कोई भी एक्सरसाइज़ रोक दें — हल्की थकान ठीक है, दर्द नहीं।"
+
+#: content.py:268
+msgid "Animal-based"
+msgstr "पशु-आधारित"
+
+#: content.py:271
+msgid "Chicken breast — ~31g protein per 100g"
+msgstr "चिकन ब्रेस्ट — प्रति 100 ग्राम ~31 ग्राम प्रोटीन"
+
+#: content.py:272
+msgid "Eggs — ~13g protein per 100g (about 6g per egg)"
+msgstr "अंडे — प्रति 100 ग्राम ~13 ग्राम प्रोटीन (प्रति अंडा लगभग 6 ग्राम)"
+
+#: content.py:273
+msgid "Greek yogurt — ~10g protein per 100g"
+msgstr "ग्रीक योगर्ट — प्रति 100 ग्राम ~10 ग्राम प्रोटीन"
+
+#: content.py:274
+msgid "Cottage cheese — ~11g protein per 100g"
+msgstr "कॉटेज चीज़ (पनीर) — प्रति 100 ग्राम ~11 ग्राम प्रोटीन"
+
+#: content.py:275
+msgid "Salmon or tuna — ~22–25g protein per 100g"
+msgstr "सैल्मन या टूना — प्रति 100 ग्राम ~22–25 ग्राम प्रोटीन"
+
+#: content.py:276
+msgid "Lean beef or turkey — ~26g protein per 100g"
+msgstr "लीन बीफ़ या टर्की — प्रति 100 ग्राम ~26 ग्राम प्रोटीन"
+
+#: content.py:281
+msgid "Plant-based"
+msgstr "पौधा-आधारित"
+
+#: content.py:284
+msgid "Lentils, cooked — ~9g protein per 100g"
+msgstr "पकी हुई दाल — प्रति 100 ग्राम ~9 ग्राम प्रोटीन"
+
+#: content.py:285
+msgid "Chickpeas, cooked — ~9g protein per 100g"
+msgstr "पके हुए छोले — प्रति 100 ग्राम ~9 ग्राम प्रोटीन"
+
+#: content.py:286
+msgid "Tofu or tempeh — ~12–19g protein per 100g"
+msgstr "टोफू या टेम्पेह — प्रति 100 ग्राम ~12–19 ग्राम प्रोटीन"
+
+#: content.py:287
+msgid "Edamame — ~11g protein per 100g"
+msgstr "एडामामे — प्रति 100 ग्राम ~11 ग्राम प्रोटीन"
+
+#: content.py:288
+msgid "Quinoa, cooked — ~4.4g protein per 100g"
+msgstr "पका हुआ क्विनोआ — प्रति 100 ग्राम ~4.4 ग्राम प्रोटीन"
+
+#: content.py:289
+msgid "Almonds or peanut butter — ~21–25g protein per 100g"
+msgstr "बादाम या पीनट बटर — प्रति 100 ग्राम ~21–25 ग्राम प्रोटीन"
+
+#: content.py:294
+msgid "Protein Supplements"
+msgstr "प्रोटीन सप्लीमेंट्स"
+
+#: content.py:297
+msgid ""
+"Whey protein powder — ~20–25g protein per scoop (fast-digesting, good post-"
+"workout)"
+msgstr ""
+"व्हे प्रोटीन पाउडर — प्रति स्कूप ~20–25 ग्राम प्रोटीन (जल्दी पचता है, "
+"वर्कआउट के बाद अच्छा)"
+
+#: content.py:298
+msgid ""
+"Casein protein powder — ~20–25g protein per scoop (slow-digesting, good "
+"before bed)"
+msgstr ""
+"कैसीन प्रोटीन पाउडर — प्रति स्कूप ~20–25 ग्राम प्रोटीन (धीरे पचता है, सोने "
+"से पहले अच्छा)"
+
+#: content.py:299
+msgid ""
+"Plant-based protein powder (pea, rice, or hemp blend) — ~15–25g protein per "
+"scoop"
+msgstr ""
+"पौधा-आधारित प्रोटीन पाउडर (मटर, चावल, या हेम्प मिश्रण) — प्रति स्कूप ~15–25 "
+"ग्राम प्रोटीन"
+
+#: content.py:300
+msgid "Ready-to-drink protein shakes — ~15–30g protein per bottle"
+msgstr "रेडी-टू-ड्रिंक प्रोटीन शेक — प्रति बोतल ~15–30 ग्राम प्रोटीन"
+
+#: content.py:301
+msgid ""
+"Collagen peptides — ~9g protein per scoop (convenient, but an incomplete "
+"protein — doesn't replace the sources above)"
+msgstr ""
+"कोलेजन पेप्टाइड्स — प्रति स्कूप ~9 ग्राम प्रोटीन (सुविधाजनक, लेकिन अधूरा "
+"प्रोटीन है — ऊपर दिए स्रोतों की जगह नहीं ले सकता)"
+
+#: content.py:302
+msgid ""
+"Protein bars — ~15–20g protein per bar (check the label; sugar content "
+"varies a lot by brand)"
+msgstr ""
+"प्रोटीन बार — प्रति बार ~15–20 ग्राम प्रोटीन (लेबल ज़रूर देखें; ब्रांड के "
+"हिसाब से शुगर की मात्रा काफी अलग होती है)"
+
+#: content.py:309
+msgid ""
+"Supplements are a convenient top-up, not a replacement for whole foods — use"
+" them to close a gap, not as your main protein source. Look for third-party "
+"tested products (e.g. NSF Certified for Sport, Informed-Sport) so you know "
+"what's actually in them, and check with a doctor first if you're on any "
+"medication, since some supplements can interact with it — this matters more "
+"the older you are."
+msgstr ""
+"सप्लीमेंट्स एक सुविधाजनक पूरक हैं, साबुत भोजन का विकल्प नहीं — इनका इस्तेमाल"
+" कमी पूरी करने के लिए करें, न कि अपने प्रोटीन का मुख्य स्रोत बनाकर। "
+"थर्ड-पार्टी टेस्टेड उत्पाद (जैसे NSF Certified for Sport, Informed-Sport) "
+"चुनें ताकि आपको पता हो कि उनमें असल में क्या है, और अगर आप कोई दवा ले रहे "
+"हैं तो पहले डॉक्टर से सलाह लें, क्योंकि कुछ सप्लीमेंट्स उससे प्रतिक्रिया कर "
+"सकते हैं — उम्र बढ़ने के साथ यह और भी मायने रखता है।"
+
+#: content.py:339
+msgid "(more on training days)"
+msgstr "(ट्रेनिंग के दिनों में ज़्यादा)"
+
+#: content.py:340
+msgid ""
+"Your thirst cues are reliable at this age — drink when thirsty, and top up "
+"around workouts and in heat."
+msgstr ""
+"इस उम्र में प्यास का संकेत भरोसेमंद होता है — प्यास लगने पर पिएं, और वर्कआउट"
+" के आसपास व गर्मी में ज़्यादा पिएं।"
+
+#: content.py:341
+msgid "Fuel growth and build good habits"
+msgstr "विकास को ऊर्जा दें और अच्छी आदतें बनाएं"
+
+#: content.py:343
+msgid "Spread protein across 3–4 meals rather than one big serving."
+msgstr "एक बार में ज़्यादा खाने के बजाय प्रोटीन को 3–4 भोजन में बांटें।"
+
+#: content.py:344
+msgid ""
+"Don't skip breakfast — it's easy to under-eat protein early in the day."
+msgstr "नाश्ता न छोड़ें — दिन की शुरुआत में प्रोटीन कम खा लेना आसान है।"
+
+#: content.py:345
+msgid ""
+"Whole foods first; save supplements for when your diet genuinely falls "
+"short."
+msgstr ""
+"पहले साबुत भोजन को प्राथमिकता दें; सप्लीमेंट्स तभी लें जब आपकी डाइट में सच "
+"में कमी हो।"
+
+#: content.py:352
+msgid ""
+"Busy schedules make it easy to under-drink — keep a bottle within sight as a"
+" visual reminder."
+msgstr ""
+"व्यस्त दिनचर्या में कम पानी पी लेना आसान है — याद दिलाने के लिए बोतल हमेशा "
+"नज़र के सामने रखें।"
+
+#: content.py:353
+msgid "Eat for consistency, not perfection"
+msgstr "पूर्णता नहीं, निरंतरता के लिए खाएं"
+
+#: content.py:355
+msgid "Batch-cook protein sources on weekends to make busy weekdays easier."
+msgstr ""
+"व्यस्त हफ्ते के दिनों को आसान बनाने के लिए वीकेंड पर प्रोटीन स्रोत एक साथ "
+"पका लें।"
+
+#: content.py:356
+msgid ""
+"Keep quick options on hand — Greek yogurt, eggs, canned beans — for low-"
+"effort days."
+msgstr ""
+"कम मेहनत वाले दिनों के लिए झटपट विकल्प तैयार रखें — ग्रीक योगर्ट, अंडे, "
+"डिब्बाबंद बीन्स।"
+
+#: content.py:357
+msgid ""
+"Watch liquid calories (alcohol, sugary drinks) creeping in as social life "
+"gets busier."
+msgstr "सामाजिक जीवन व्यस्त होने पर तरल कैलोरी (शराब, मीठे पेय) पर नज़र रखें।"
+
+#: content.py:364
+msgid ""
+"Joint stiffness is sometimes linked to mild dehydration — consistent water "
+"intake supports joint lubrication too."
+msgstr ""
+"जोड़ों की अकड़न कभी-कभी हल्के डिहाइड्रेशन से जुड़ी होती है — नियमित पानी "
+"पीना जोड़ों की चिकनाई बनाए रखने में भी मदद करता है।"
+
+#: content.py:365
+msgid "Protect muscle as metabolism shifts"
+msgstr "मेटाबॉलिज़्म बदलने के साथ मांसपेशियों की सुरक्षा करें"
+
+#: content.py:367
+msgid ""
+"Prioritize protein at breakfast — it helps offset the muscle loss that tends"
+" to start around now."
+msgstr ""
+"नाश्ते में प्रोटीन को प्राथमिकता दें — यह उस मांसपेशी क्षय की भरपाई में मदद "
+"करता है जो अब शुरू होने लगती है।"
+
+#: content.py:368
+msgid ""
+"Add fiber-rich carbs (vegetables, whole grains) to support digestion and "
+"steady energy."
+msgstr ""
+"पाचन और स्थिर ऊर्जा के लिए फाइबर से भरपूर कार्ब्स (सब्ज़ियां, साबुत अनाज) "
+"शामिल करें।"
+
+#: content.py:369
+msgid "Stay on top of hydration — thirst cues get less reliable with age."
+msgstr ""
+"हाइड्रेशन पर ध्यान बनाए रखें — उम्र बढ़ने के साथ प्यास का संकेत कम भरोसेमंद "
+"होता जाता है।"
+
+#: content.py:376
+msgid ""
+"Hormonal shifts (perimenopause/menopause) can affect fluid balance — pay "
+"extra attention in hot weather."
+msgstr ""
+"हार्मोनल बदलाव (पेरिमेनोपॉज़/मेनोपॉज़) शरीर के तरल संतुलन को प्रभावित कर "
+"सकते हैं — गर्म मौसम में खास ध्यान दें।"
+
+#: content.py:377
+msgid "Support bone density alongside muscle"
+msgstr "मांसपेशियों के साथ हड्डियों का घनत्व भी बनाए रखें"
+
+#: content.py:379
+msgid ""
+"Pair protein with calcium-rich foods (dairy, leafy greens, fortified plant "
+"milk) for bone health."
+msgstr ""
+"हड्डियों की सेहत के लिए प्रोटीन के साथ कैल्शियम युक्त भोजन (डेयरी, हरी "
+"पत्तेदार सब्ज़ियां, फोर्टिफाइड प्लांट मिल्क) लें।"
+
+#: content.py:380
+msgid ""
+"Get vitamin D through safe sun exposure, fortified foods, or a supplement — "
+"ask your doctor."
+msgstr ""
+"सुरक्षित धूप, फोर्टिफाइड भोजन, या सप्लीमेंट से विटामिन डी लें — डॉक्टर से "
+"सलाह लें।"
+
+#: content.py:381
+msgid ""
+"Cut back on sodium where you can; blood pressure sensitivity often increases"
+" now."
+msgstr ""
+"जहां संभव हो सोडियम कम करें; अब रक्तचाप की संवेदनशीलता अक्सर बढ़ जाती है।"
+
+#: content.py:387
+msgid "— don't rely on thirst alone"
+msgstr "— सिर्फ प्यास पर निर्भर न रहें"
+
+#: content.py:388
+msgid ""
+"Thirst sensation starts declining now — sip water on a schedule throughout "
+"the day rather than waiting to feel thirsty."
+msgstr ""
+"अब प्यास का एहसास कम होने लगता है — प्यास लगने का इंतज़ार करने के बजाय दिन "
+"भर एक तय समय पर पानी पिएं।"
+
+#: content.py:389
+msgid "Fight anabolic resistance with more, more often"
+msgstr "ज़्यादा मात्रा में, ज़्यादा बार लेकर एनाबॉलिक रेज़िस्टेंस से लड़ें"
+
+#: content.py:391
+msgid ""
+"Your body needs more protein per meal now to build the same muscle it once "
+"did — aim for 25–30g per meal."
+msgstr ""
+"पहले जितनी मांसपेशी बनाने के लिए अब आपके शरीर को हर भोजन में ज़्यादा प्रोटीन"
+" चाहिए — प्रति भोजन 25–30 ग्राम का लक्ष्य रखें।"
+
+#: content.py:392
+msgid ""
+"Soft, easy-to-chew protein options (fish, eggs, yogurt, smoothies) help if "
+"dental issues make eating harder."
+msgstr ""
+"अगर दांतों की समस्या से खाना मुश्किल हो, तो नरम, आसानी से चबाए जाने वाले "
+"प्रोटीन विकल्प (मछली, अंडे, योगर्ट, स्मूदी) मदद करते हैं।"
+
+#: content.py:393
+msgid ""
+"Fiber and water together help prevent the constipation that becomes more "
+"common with age."
+msgstr ""
+"फाइबर और पानी मिलकर उस कब्ज़ को रोकने में मदद करते हैं जो उम्र के साथ आम "
+"होती जाती है।"
+
+#: content.py:399
+msgid "— ask your doctor if you take diuretics"
+msgstr "— अगर आप डाइयुरेटिक दवाएं लेते हैं तो डॉक्टर से पूछें"
+
+#: content.py:400
+msgid ""
+"Some medications affect fluid needs — get a personalized target from your "
+"doctor, and drink on a schedule, not just when thirsty."
+msgstr ""
+"कुछ दवाएं तरल पदार्थ की ज़रूरत को प्रभावित करती हैं — डॉक्टर से अपना निजी "
+"लक्ष्य जानें, और सिर्फ प्यास लगने पर नहीं बल्कि तय समय पर पानी पिएं।"
+
+#: content.py:401
+msgid "Eat to preserve strength and independence"
+msgstr "ताकत और आत्मनिर्भरता बनाए रखने के लिए खाएं"
+
+#: content.py:403
+msgid ""
+"Appetite often decreases with age — smaller, more frequent, nutrient-dense "
+"meals can help you get enough."
+msgstr ""
+"उम्र के साथ भूख अक्सर कम हो जाती है — छोटे, बार-बार, पोषक तत्वों से भरपूर "
+"भोजन पर्याप्त पोषण पाने में मदद कर सकते हैं।"
+
+#: content.py:404
+msgid ""
+"Protein at every meal, including breakfast, helps preserve the muscle you "
+"have."
+msgstr ""
+"नाश्ते सहित हर भोजन में प्रोटीन लेने से आपकी मौजूदा मांसपेशियां बनी रहती "
+"हैं।"
+
+#: content.py:405
+msgid ""
+"Talk to your doctor about your specific needs, especially with any chronic "
+"conditions or medications."
+msgstr ""
+"अपनी खास ज़रूरतों के बारे में डॉक्टर से बात करें, खासकर अगर कोई पुरानी "
+"बीमारी या दवाएं चल रही हों।"
+
+#: content.py:419
+msgid ""
+"It depends on your level: Beginner is 3 days/week, Intermediate is 4, and "
+"Active is 5. Check the Workout Plans page — pick your decade in the age "
+"selector there and we'll suggest a starting level."
+msgstr ""
+"यह आपके स्तर पर निर्भर करता है: शुरुआती के लिए हफ्ते में 3 दिन, मध्यम स्तर "
+"के लिए 4, और सक्रिय के लिए 5। Workout Plans पेज देखें — वहां एज सिलेक्टर में"
+" अपना दशक चुनें, हम एक शुरुआती स्तर सुझाएंगे।"
+
+#: content.py:423
+msgid ""
+"Start with the Beginner plan on the Workout Plans page — 3 days/week, "
+"bodyweight-focused, built to be safe for a true starting point. It's fine to"
+" start slow and build up from there."
+msgstr ""
+"Workout Plans पेज पर शुरुआती प्लान से शुरू करें — हफ्ते में 3 दिन, बॉडीवेट "
+"पर केंद्रित, बिल्कुल नई शुरुआत के लिए सुरक्षित बनाया गया। धीरे शुरू करना और "
+"फिर आगे बढ़ना बिल्कुल ठीक है।"
+
+#: content.py:427
+msgid ""
+"Pick your age decade in the selector on the Workout Plans page — it'll "
+"highlight a recommended starting level. That's just a suggestion though; "
+"your actual fitness level matters more than your age."
+msgstr ""
+"Workout Plans पेज के सिलेक्टर में अपना उम्र का दशक चुनें — यह एक सुझाया गया "
+"शुरुआती स्तर दिखाएगा। लेकिन यह सिर्फ एक सुझाव है; आपकी असली फिटनेस उम्र से "
+"ज़्यादा मायने रखती है।"
+
+#: content.py:431
+msgid ""
+"Your protein target goes up with age, not down — roughly 1.2–1.6 g/kg of "
+"bodyweight in your 20s, up to 1.8–2.4 g/kg in your 70s (higher needs fight "
+"age-related muscle loss). See the Diet Plan page for your exact decade's "
+"target."
+msgstr ""
+"उम्र बढ़ने के साथ आपका प्रोटीन लक्ष्य घटता नहीं, बढ़ता है — 20s में लगभग "
+"1.2–1.6 ग्राम/किलो शरीर के वज़न से लेकर 70s में 1.8–2.4 ग्राम/किलो तक "
+"(ज़्यादा ज़रूरत उम्र से जुड़ी मांसपेशी क्षय से लड़ने में मदद करती है)। अपने "
+"सटीक दशक के लक्ष्य के लिए Diet Plan पेज देखें।"
+
+#: content.py:435
+msgid ""
+"The Diet Plan page has a full list — animal-based (chicken, eggs, Greek "
+"yogurt, fish), plant-based (lentils, chickpeas, tofu, edamame, quinoa), and "
+"protein supplements (whey, casein, plant protein powder) if whole food alone"
+" isn't hitting your target."
+msgstr ""
+"Diet Plan पेज पर पूरी सूची है — पशु-आधारित (चिकन, अंडे, ग्रीक योगर्ट, मछली),"
+" पौधा-आधारित (दाल, छोले, टोफू, एडामामे, क्विनोआ), और अगर अकेले साबुत भोजन से"
+" आपका लक्ष्य पूरा न हो तो प्रोटीन सप्लीमेंट्स (व्हे, कैसीन, प्लांट प्रोटीन "
+"पाउडर)।"
+
+#: content.py:439
+msgid ""
+"Whey, casein, and plant-based protein powders are all fine as a convenient "
+"top-up — not a replacement for whole foods. Look for third-party tested "
+"products and check with a doctor first if you're on medication. Full options"
+" on the Diet Plan page under Protein Sources."
+msgstr ""
+"व्हे, कैसीन और पौधा-आधारित प्रोटीन पाउडर सभी एक सुविधाजनक पूरक के तौर पर ठीक"
+" हैं — साबुत भोजन का विकल्प नहीं। थर्ड-पार्टी टेस्टेड उत्पाद चुनें और अगर आप"
+" दवा ले रहे हैं तो पहले डॉक्टर से पूछें। पूरे विकल्पों के लिए Diet Plan पेज "
+"पर Protein Sources देखें।"
+
+#: content.py:443
+msgid ""
+"Aim for roughly 2–3.5 L of water per day, trending down slightly with age — "
+"but older adults should drink on a schedule rather than waiting to feel "
+"thirsty, since thirst cues get less reliable. See the Diet Plan page for "
+"your decade's hydration target."
+msgstr ""
+"प्रतिदिन लगभग 2–3.5 लीटर पानी का लक्ष्य रखें, जो उम्र के साथ थोड़ा कम होता "
+"जाता है — लेकिन बड़ी उम्र के लोगों को प्यास लगने का इंतज़ार करने के बजाय तय "
+"समय पर पानी पीना चाहिए, क्योंकि प्यास का संकेत कम भरोसेमंद हो जाता है। अपने "
+"दशक के हाइड्रेशन लक्ष्य के लिए Diet Plan पेज देखें।"
+
+#: content.py:447
+msgid ""
+"Head to the Tools page — there's a free BMI calculator right there, just "
+"enter your height and weight."
+msgstr ""
+"Tools पेज पर जाएं — वहां एक मुफ़्त BMI कैलकुलेटर है, बस अपनी ऊंचाई और वज़न "
+"दर्ज करें।"
+
+#: content.py:451
+msgid ""
+"Yes, strength training is safe and valuable at any age with the right "
+"modifications — lower-impact options, more warm-up time, and a focus on "
+"balance and functional movement. Get medical clearance first if you have any"
+" conditions. See Safety Tips for decade-specific guidance."
+msgstr ""
+"हां, सही बदलावों के साथ स्ट्रेंथ ट्रेनिंग किसी भी उम्र में सुरक्षित और "
+"फायदेमंद है — कम-असर वाले विकल्प, ज़्यादा वार्म-अप समय, और बैलेंस व फंक्शनल "
+"मूवमेंट पर ध्यान। अगर कोई स्वास्थ्य समस्या है तो पहले चिकित्सीय मंज़ूरी लें।"
+" दशक-विशेष मार्गदर्शन के लिए Safety Tips देखें।"
+
+#: content.py:455
+msgid ""
+"The big three: warm up properly (5-10 min, longer as you get older), "
+"prioritize form over weight, and take 1-2 rest days a week. If something "
+"causes sharp pain, stop — mild fatigue is fine, pain isn't. Full guidance on"
+" the Safety Tips page."
+msgstr ""
+"तीन सबसे ज़रूरी बातें: सही तरीके से वार्म अप करें (5-10 मिनट, उम्र बढ़ने पर "
+"ज़्यादा देर), वज़न से ज़्यादा फॉर्म को प्राथमिकता दें, और हफ्ते में 1-2 दिन "
+"आराम करें। अगर कुछ तेज़ दर्द दे, तो रुक जाएं — हल्की थकान ठीक है, दर्द नहीं।"
+" पूरा मार्गदर्शन Safety Tips पेज पर है।"
+
+#: content.py:459
+msgid ""
+"5-10 minutes before any workout, minimum — and give yourself more like 10+ "
+"minutes as you get into your 60s and 70s."
+msgstr ""
+"किसी भी वर्कआउट से पहले कम से कम 5-10 मिनट — और अपनी 60s व 70s की उम्र में "
+"10+ मिनट तक दें।"
+
+#: content.py:463
+msgid ""
+"Yes, you can absolutely build and maintain muscle later in life — it just "
+"takes more deliberate effort: higher relative protein intake and consistent "
+"resistance training, since the body becomes more resistant to building "
+"muscle with age (\"anabolic resistance\"). See the Diet Plan and Workout "
+"Plans pages."
+msgstr ""
+"हां, बड़ी उम्र में भी आप मांसपेशियां बना और बनाए रख सकते हैं — बस इसके लिए "
+"ज़्यादा सोच-समझकर मेहनत करनी पड़ती है: अपेक्षाकृत ज़्यादा प्रोटीन और नियमित "
+"रेज़िस्टेंस ट्रेनिंग, क्योंकि उम्र बढ़ने के साथ शरीर मांसपेशी बनाने में "
+"ज़्यादा प्रतिरोध करता है (\"एनाबॉलिक रेज़िस्टेंस\")। Diet Plan और Workout "
+"Plans पेज देखें।"
+
+#: content.py:467
+msgid ""
+"If you have an existing health condition, are over 50, or are making a big "
+"change to your routine, it's worth getting a doctor's clearance first — "
+"especially before starting a new intensity level. This site gives general "
+"guidance, not medical advice."
+msgstr ""
+"अगर आपको कोई मौजूदा स्वास्थ्य समस्या है, आपकी उम्र 50 से ज़्यादा है, या आप "
+"अपनी दिनचर्या में बड़ा बदलाव कर रहे हैं, तो पहले डॉक्टर से मंज़ूरी लेना "
+"बेहतर है — खासकर नए तीव्रता स्तर पर शुरू करने से पहले। यह वेबसाइट सामान्य "
+"मार्गदर्शन देती है, चिकित्सीय सलाह नहीं।"
+
+#: content.py:471
+msgid ""
+"Walking is a great low-impact cardio option at any age, and it's built into "
+"every plan here. Swimming and cycling are good alternatives if you want to "
+"vary it up."
+msgstr ""
+"पैदल चलना किसी भी उम्र में एक बेहतरीन कम-असर वाला कार्डियो विकल्प है, और यह "
+"यहां हर प्लान में शामिल है। बदलाव के लिए तैराकी और साइकिलिंग भी अच्छे विकल्प"
+" हैं।"
+
+#: content.py:475
+msgid ""
+"1-2 full rest days a week is the general guidance here, more if you're newer"
+" to training or in an older decade where recovery naturally takes longer."
+msgstr ""
+"यहां सामान्य सलाह है हफ्ते में 1-2 पूरे आराम के दिन, और अगर आप ट्रेनिंग में "
+"नए हैं या बड़ी उम्र के दशक में हैं जहां रिकवरी स्वाभाविक रूप से ज़्यादा समय "
+"लेती है, तो और ज़्यादा।"
+
+#: content.py:479
+msgid ""
+"Check out the Membership page — you can subscribe via Stripe (card) or UPI. "
+"You'll need to be logged in first."
+msgstr ""
+"Membership पेज देखें — आप Stripe (कार्ड) या UPI से सब्सक्राइब कर सकते हैं। "
+"इसके लिए पहले लॉग इन करना होगा।"
+
+#: content.py:483
+msgid ""
+"Hey! Ask me anything about workouts, protein, hydration, or safety — I'm "
+"scoped to training and diet questions for this site."
+msgstr ""
+"नमस्ते! मुझसे वर्कआउट, प्रोटीन, हाइड्रेशन, या सुरक्षा के बारे में कुछ भी "
+"पूछें — मैं इस साइट के ट्रेनिंग और डाइट सवालों तक सीमित हूं।"
+
+#: content.py:487
+msgid "Anytime! Good luck with your training. 💪"
+msgstr "कभी भी पूछें! आपकी ट्रेनिंग के लिए शुभकामनाएं। 💪"
+
+#: units.py:28
+#, python-format
+msgid "%(low)s–%(high)s g per lb of bodyweight"
+msgstr "शरीर के वज़न के प्रति पाउंड %(low)s–%(high)s ग्राम"
+
+#: units.py:30
+#, python-format
+msgid "%(low)s–%(high)s g per kg of bodyweight"
+msgstr "शरीर के वज़न के प्रति किलो %(low)s–%(high)s ग्राम"
+
+#: units.py:40
+#, python-format
+msgid "%(low)s–%(high)s fl oz per day"
+msgstr "%(low)s–%(high)s फ़्लूइड औंस प्रतिदिन"
+
+#: units.py:42
+#, python-format
+msgid "%(low)s–%(high)s L per day"
+msgstr "%(low)s–%(high)s लीटर प्रतिदिन"
+
+#: templates/404.html:2 templates/404.html:6
+msgid "Page Not Found"
+msgstr "पेज नहीं मिला"
+
+#: templates/404.html:5
+msgid "Even the best training plans take a wrong turn sometimes"
+msgstr "कभी-कभी सबसे अच्छे ट्रेनिंग प्लान भी रास्ता भटक जाते हैं"
+
+#: templates/404.html:7
+msgid "The page you're looking for doesn't exist or may have moved."
+msgstr "जो पेज आप ढूंढ रहे हैं वह मौजूद नहीं है या शायद हट गया है।"
+
+#: templates/404.html:7
+msgid "Let's get you back on track."
+msgstr "चलिए आपको वापस सही रास्ते पर लाते हैं।"
+
+#: templates/404.html:8 templates/500.html:7
+msgid "Back to Home"
+msgstr "होम पर वापस जाएं"
+
+#: templates/500.html:2 templates/500.html:5
+msgid "Something Went Wrong"
+msgstr "कुछ गड़बड़ हो गई"
+
+#: templates/500.html:6
+msgid "An unexpected error occurred on our end. Please try again in a moment."
+msgstr ""
+"हमारी तरफ से एक अनपेक्षित त्रुटि हुई। कृपया थोड़ी देर में फिर से कोशिश करें।"
+
+#: templates/_age_selector.html:2
+msgid "Get tips for your age:"
+msgstr "अपनी उम्र के लिए सुझाव पाएं:"
+
+#: templates/_age_selector.html:7
+msgid "Any age"
+msgstr "कोई भी उम्र"
+
+#: templates/_sso_buttons.html:5
+#, python-format
+msgid "Continue with %(provider)s"
+msgstr "%(provider)s के साथ जारी रखें"
+
+#: templates/_sso_buttons.html:9 templates/membership.html:74
+msgid "or"
+msgstr "या"
+
+#: templates/account.html:2 templates/account.html:4
+msgid "Account Settings"
+msgstr "खाता सेटिंग्स"
+
+#: templates/account.html:7
+msgid "Profile"
+msgstr "प्रोफ़ाइल"
+
+#: templates/account.html:9 templates/admin.html:28
+msgid "Joined"
+msgstr "जुड़ने की तारीख"
+
+#: templates/account.html:10 templates/admin.html:29
+#: templates/membership.html:23
+msgid "Premium"
+msgstr "प्रीमियम"
+
+#: templates/account.html:11
+#, python-format
+msgid "Connected to %(provider)s"
+msgstr "%(provider)s से जुड़ा हुआ"
+
+#: templates/account.html:16
+msgid "Workout Progress"
+msgstr "वर्कआउट प्रगति"
+
+#: templates/account.html:19
+#, python-format
+msgid "%(done)s of %(total)s exercises completed across all plans."
+msgstr "सभी प्लान में %(total)s में से %(done)s एक्सरसाइज़ पूरी हुईं।"
+
+#: templates/account.html:21
+#, python-format
+msgid "Last activity: %(date)s."
+msgstr "आखिरी गतिविधि: %(date)s।"
+
+#: templates/account.html:29
+msgid "This syncs automatically across every device you log in on."
+msgstr "यह उन सभी डिवाइस पर अपने आप सिंक हो जाता है जहां आप लॉग इन करते हैं।"
+
+#: templates/account.html:32
+msgid "No completed exercises yet — check some off on the"
+msgstr "अभी तक कोई एक्सरसाइज़ पूरी नहीं हुई — कुछ को"
+
+#: templates/account.html:33 templates/base.html:43 templates/workouts.html:2
+#: templates/workouts.html:5
+msgid "Workout Plans"
+msgstr "वर्कआउट प्लान"
+
+#: templates/account.html:33
+msgid "page and it will sync here."
+msgstr "पेज पर चेक करें और यह यहां सिंक हो जाएगा।"
+
+#: templates/account.html:39
+msgid "Email Address"
+msgstr "ईमेल पता"
+
+#: templates/account.html:42 templates/admin.html:27 templates/contact.html:14
+#: templates/forgot_password.html:10 templates/login.html:12
+#: templates/signup.html:12
+msgid "Email"
+msgstr "ईमेल"
+
+#: templates/account.html:45 templates/account.html:57
+#: templates/account.html:98
+msgid "Current Password"
+msgstr "मौजूदा पासवर्ड"
+
+#: templates/account.html:48
+msgid "Update Email"
+msgstr "ईमेल अपडेट करें"
+
+#: templates/account.html:53 templates/login.html:15 templates/signup.html:15
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: templates/account.html:60 templates/reset_password.html:9
+msgid "New Password"
+msgstr "नया पासवर्ड"
+
+#: templates/account.html:62 templates/reset_password.html:11
+#: templates/signup.html:17
+msgid "At least 8 characters."
+msgstr "कम से कम 8 अक्षर।"
+
+#: templates/account.html:63
+msgid "Set a password"
+msgstr "पासवर्ड सेट करें"
+
+#: templates/account.html:63
+msgid "Update Password"
+msgstr "पासवर्ड अपडेट करें"
+
+#: templates/account.html:69
+msgid "Connected Accounts"
+msgstr "जुड़े हुए खाते"
+
+#: templates/account.html:71
+#, python-format
+msgid "Your account is connected to %(provider)s."
+msgstr "आपका खाता %(provider)s से जुड़ा है।"
+
+#: templates/account.html:74
+#, python-format
+msgid "Disconnect %(provider)s"
+msgstr "%(provider)s डिस्कनेक्ट करें"
+
+#: templates/account.html:78
+#, python-format
+msgid ""
+"Your account is connected to %(provider)s. Set a password above first so you"
+" can still log in after disconnecting."
+msgstr ""
+"आपका खाता %(provider)s से जुड़ा है। डिस्कनेक्ट करने के बाद भी लॉग इन कर "
+"सकें, इसके लिए पहले ऊपर एक पासवर्ड सेट करें।"
+
+#: templates/account.html:85
+msgid "Your Data"
+msgstr "आपका डेटा"
+
+#: templates/account.html:86
+msgid "Download a copy of your account data."
+msgstr "अपने खाते के डेटा की एक प्रति डाउनलोड करें।"
+
+#: templates/account.html:87
+msgid "Export My Data"
+msgstr "मेरा डेटा एक्सपोर्ट करें"
+
+#: templates/account.html:91
+msgid "Delete Account"
+msgstr "खाता हटाएं"
+
+#: templates/account.html:92
+msgid "This permanently deletes your account. This cannot be undone."
+msgstr "यह आपके खाते को स्थायी रूप से हटा देगा। इसे वापस नहीं किया जा सकता।"
+
+#: templates/account.html:95
+#, python-format
+msgid "Type your email address (%(email)s) to confirm"
+msgstr "पुष्टि के लिए अपना ईमेल पता (%(email)s) टाइप करें"
+
+#: templates/account.html:101
+msgid "Delete My Account"
+msgstr "मेरा खाता हटाएं"
+
+#: templates/admin.html:2 templates/admin.html:30 templates/base.html:51
+msgid "Admin"
+msgstr "एडमिन"
+
+#: templates/admin.html:4
+msgid "Admin — Users"
+msgstr "एडमिन — उपयोगकर्ता"
+
+#: templates/admin.html:6
+msgid ""
+"Stripe payments confirm Premium automatically. UPI has no automatic "
+"confirmation — use the button below to mark a member Premium once you've "
+"verified their payment (match the reference number shown in their UPI "
+"transaction note to the user ID here)."
+msgstr ""
+"Stripe भुगतान अपने आप Premium की पुष्टि कर देता है। UPI में कोई ऑटोमैटिक "
+"पुष्टि नहीं होती — किसी सदस्य का भुगतान सत्यापित करने के बाद उसे Premium "
+"करने के लिए नीचे दिया बटन इस्तेमाल करें (उनके UPI ट्रांज़ैक्शन नोट में दिखे "
+"रेफरेंस नंबर को यहां यूज़र आईडी से मिलाएं)।"
+
+#: templates/admin.html:10 templates/admin_messages.html:7
+msgid "Users"
+msgstr "उपयोगकर्ता"
+
+#: templates/admin.html:12 templates/admin_messages.html:8
+msgid "Messages"
+msgstr "संदेश"
+
+#: templates/admin.html:17
+msgid "Search by email…"
+msgstr "ईमेल से खोजें…"
+
+#: templates/admin.html:18
+msgid "Search"
+msgstr "खोजें"
+
+#: templates/admin.html:19
+msgid "Clear"
+msgstr "साफ़ करें"
+
+#: templates/admin.html:26
+msgid "ID"
+msgstr "आईडी"
+
+#: templates/admin.html:31
+msgid "Action"
+msgstr "कार्रवाई"
+
+#: templates/admin.html:40 templates/admin.html:41
+msgid "Yes"
+msgstr "हां"
+
+#: templates/admin.html:40 templates/admin.html:41
+msgid "No"
+msgstr "नहीं"
+
+#: templates/admin.html:47
+msgid "Remove Premium"
+msgstr "प्रीमियम हटाएं"
+
+#: templates/admin.html:47
+msgid "Mark Premium"
+msgstr "प्रीमियम करें"
+
+#: templates/admin.html:53
+msgid "No users match that search."
+msgstr "उस खोज से कोई उपयोगकर्ता मेल नहीं खाता।"
+
+#: templates/admin_messages.html:2 templates/admin_messages.html:4
+msgid "Contact Messages"
+msgstr "संपर्क संदेश"
+
+#: templates/admin_messages.html:18
+msgid "New"
+msgstr "नया"
+
+#: templates/admin_messages.html:25
+msgid "Mark Unread"
+msgstr "अपठित के रूप में चिह्नित करें"
+
+#: templates/admin_messages.html:25
+msgid "Mark Read"
+msgstr "पढ़ा हुआ चिह्नित करें"
+
+#: templates/admin_messages.html:29
+msgid "Delete this message?"
+msgstr "क्या इस संदेश को हटाना है?"
+
+#: templates/admin_messages.html:31
+msgid "Delete"
+msgstr "हटाएं"
+
+#: templates/admin_messages.html:36
+msgid "No messages yet."
+msgstr "अभी तक कोई संदेश नहीं।"
+
+#: templates/base.html:42
+msgid "Home"
+msgstr "होम"
+
+#: templates/base.html:44 templates/diet.html:2 templates/diet.html:6
+msgid "Diet Plan"
+msgstr "डाइट प्लान"
+
+#: templates/base.html:45 templates/tools.html:2
+msgid "Tools"
+msgstr "टूल्स"
+
+#: templates/base.html:46 templates/safety.html:2
+msgid "Safety Tips"
+msgstr "सुरक्षा सुझाव"
+
+#: templates/base.html:47 templates/membership.html:2
+msgid "Membership"
+msgstr "सदस्यता"
+
+#: templates/base.html:48 templates/contact.html:2
+#: templates/membership.html:59
+msgid "Contact"
+msgstr "संपर्क करें"
+
+#: templates/base.html:53
+msgid "Account"
+msgstr "खाता"
+
+#: templates/base.html:54
+msgid "Log out"
+msgstr "लॉग आउट"
+
+#: templates/base.html:56 templates/membership.html:73
+#: templates/signup.html:23
+msgid "Log in"
+msgstr "लॉग इन करें"
+
+#: templates/base.html:57 templates/login.html:25
+msgid "Sign up"
+msgstr "साइन अप करें"
+
+#: templates/base.html:60
+msgid "Language"
+msgstr "भाषा"
+
+#: templates/base.html:93
+#, python-format
+msgid "Please verify your email address (%(email)s)."
+msgstr "कृपया अपना ईमेल पता (%(email)s) सत्यापित करें।"
+
+#: templates/base.html:96
+msgid "Resend verification email"
+msgstr "सत्यापन ईमेल फिर से भेजें"
+
+#: templates/base.html:110
+msgid "Open training & diet chat assistant"
+msgstr "ट्रेनिंग और डाइट चैट असिस्टेंट खोलें"
+
+#: templates/base.html:113
+msgid "Ask about training & diet"
+msgstr "ट्रेनिंग और डाइट के बारे में पूछें"
+
+#: templates/base.html:114
+msgid "Close chat"
+msgstr "चैट बंद करें"
+
+#: templates/base.html:117
+msgid "Hi! Ask me anything about workouts, protein, or hydration. 💪"
+msgstr ""
+"नमस्ते! मुझसे वर्कआउट, प्रोटीन, या हाइड्रेशन के बारे में कुछ भी पूछें। 💪"
+
+#: templates/base.html:120
+msgid "Ask a question…"
+msgstr "एक सवाल पूछें…"
+
+#: templates/base.html:121
+msgid "Send"
+msgstr "भेजें"
+
+#: templates/cancel.html:2
+msgid "Payment Cancelled"
+msgstr "भुगतान रद्द किया गया"
+
+#: templates/cancel.html:5
+msgid "Checkout Cancelled"
+msgstr "चेकआउट रद्द किया गया"
+
+#: templates/cancel.html:6
+msgid "No charge was made."
+msgstr "कोई शुल्क नहीं लिया गया।"
+
+#: templates/cancel.html:6
+msgid "You can try again anytime — we'll be here."
+msgstr "आप कभी भी दोबारा कोशिश कर सकते हैं — हम यहां मौजूद रहेंगे।"
+
+#: templates/cancel.html:7
+msgid "Back to Membership"
+msgstr "सदस्यता पर वापस जाएं"
+
+#: templates/contact.html:4
+msgid "We're here to help"
+msgstr "हम मदद के लिए यहां हैं"
+
+#: templates/contact.html:5
+msgid "Get in Touch"
+msgstr "संपर्क करें"
+
+#: templates/contact.html:6
+msgid "Questions about a plan, or want coaching advice?"
+msgstr "किसी प्लान के बारे में सवाल हैं, या कोचिंग सलाह चाहिए?"
+
+#: templates/contact.html:6
+msgid "We'd love to hear from you."
+msgstr "हमें आपसे सुनकर खुशी होगी।"
+
+#: templates/contact.html:6
+msgid ""
+"(Or ask our chat assistant in the corner — it's faster for quick questions.)"
+msgstr ""
+"(या कोने में मौजूद हमारे चैट असिस्टेंट से पूछें — छोटे सवालों के लिए यह तेज़"
+" है।)"
+
+#: templates/contact.html:11
+msgid "Name"
+msgstr "नाम"
+
+#: templates/contact.html:12
+msgid "Your name"
+msgstr "आपका नाम"
+
+#: templates/contact.html:15
+msgid "Your email"
+msgstr "आपका ईमेल"
+
+#: templates/contact.html:17
+msgid "Message"
+msgstr "संदेश"
+
+#: templates/contact.html:18
+msgid "How can we help?"
+msgstr "हम कैसे मदद कर सकते हैं?"
+
+#: templates/contact.html:20
+msgid "Send Message"
+msgstr "संदेश भेजें"
+
+#: templates/diet.html:3
+msgid ""
+"Age-specific protein and hydration targets, meal tips, and protein source "
+"ideas — from your 20s through your 70s."
+msgstr ""
+"आपके 20s से लेकर 70s तक, उम्र के हिसाब से प्रोटीन और हाइड्रेशन लक्ष्य, भोजन "
+"के सुझाव, और प्रोटीन स्रोतों के विचार।"
+
+#: templates/diet.html:5
+msgid "Eat smart, train hard"
+msgstr "समझदारी से खाएं, मेहनत से ट्रेन करें"
+
+#: templates/diet.html:7
+msgid "Protein"
+msgstr "प्रोटीन"
+
+#: templates/diet.html:7 templates/index.html:8 templates/membership.html:44
+msgid "and"
+msgstr "और"
+
+#: templates/diet.html:7
+msgid "hydration needs actually"
+msgstr "हाइड्रेशन की ज़रूरत असल में"
+
+#: templates/diet.html:7
+msgid "go up"
+msgstr "बढ़ती है"
+
+#: templates/diet.html:7
+msgid "as you age, not down."
+msgstr "उम्र बढ़ने के साथ, घटती नहीं।"
+
+#: templates/diet.html:8
+msgid "Get your targets and practical food sources below —"
+msgstr "नीचे अपने लक्ष्य और व्यावहारिक भोजन स्रोत पाएं —"
+
+#: templates/diet.html:8
+msgid "tailored to your decade"
+msgstr "आपके दशक के हिसाब से तैयार"
+
+#: templates/diet.html:15 templates/safety.html:19
+#, python-format
+msgid "In your %(label)s (%(range)s)"
+msgstr "%(label)s की उम्र में (%(range)s)"
+
+#: templates/diet.html:17
+msgid "Protein:"
+msgstr "प्रोटीन:"
+
+#: templates/diet.html:17
+msgid "per day"
+msgstr "प्रतिदिन"
+
+#: templates/diet.html:18
+msgid "Water:"
+msgstr "पानी:"
+
+#: templates/diet.html:29
+msgid "Protein Sources"
+msgstr "प्रोटीन स्रोत"
+
+#: templates/diet.html:30
+msgid "Mix and match"
+msgstr "मिलाएं और चुनें"
+
+#: templates/diet.html:30
+msgid "from whichever list fits how you eat."
+msgstr "जो भी सूची आपके खाने के तरीके से मेल खाए, उससे चुनें।"
+
+#: templates/diet.html:49
+msgid ""
+"This is general nutrition information, not medical advice. Protein grams are"
+" approximate. If you have kidney disease, are pregnant, or have another "
+"condition affecting protein or fluid needs, talk to a doctor or registered "
+"dietitian before changing your intake."
+msgstr ""
+"यह सामान्य पोषण संबंधी जानकारी है, चिकित्सीय सलाह नहीं। प्रोटीन की मात्रा "
+"अनुमानित है। अगर आपको किडनी की बीमारी है, आप गर्भवती हैं, या कोई और स्थिति "
+"है जो प्रोटीन या तरल पदार्थ की ज़रूरत को प्रभावित करती है, तो अपना सेवन "
+"बदलने से पहले डॉक्टर या रजिस्टर्ड डाइटिशियन से बात करें।"
+
+#: templates/forgot_password.html:2
+msgid "Forgot Password"
+msgstr "पासवर्ड भूल गए"
+
+#: templates/forgot_password.html:4
+msgid "Forgot Your Password?"
+msgstr "अपना पासवर्ड भूल गए?"
+
+#: templates/forgot_password.html:5
+msgid "Enter your email and we'll send you a link to reset it."
+msgstr "अपना ईमेल दर्ज करें और हम आपको इसे रीसेट करने के लिए एक लिंक भेजेंगे।"
+
+#: templates/forgot_password.html:13
+msgid "Send Reset Link"
+msgstr "रीसेट लिंक भेजें"
+
+#: templates/forgot_password.html:16
+msgid "Back to log in"
+msgstr "लॉग इन पर वापस जाएं"
+
+#: templates/index.html:5
+msgid "No matter your age, your strongest self is ahead of you"
+msgstr "आपकी उम्र चाहे जो हो, आपका सबसे मज़बूत रूप अभी आना बाकी है"
+
+#: templates/index.html:6
+msgid "Strong, Mobile, and Unstoppable — at Any Age"
+msgstr "मज़बूत, गतिशील, और अजेय — किसी भी उम्र में"
+
+#: templates/index.html:7
+msgid "Workout plans built around"
+msgstr "वर्कआउट प्लान जो इन पर आधारित हैं"
+
+#: templates/index.html:7
+msgid "joint health"
+msgstr "जोड़ों की सेहत"
+
+#: templates/index.html:7
+msgid "smart recovery"
+msgstr "समझदार रिकवरी"
+
+#: templates/index.html:8
+msgid "sustainable strength"
+msgstr "टिकाऊ ताकत"
+
+#: templates/index.html:8
+msgid "tailored to your decade, from your 20s through your 70s."
+msgstr "आपके 20s से 70s तक, आपके दशक के हिसाब से तैयार।"
+
+#: templates/index.html:9
+msgid "See Workout Plans"
+msgstr "वर्कआउट प्लान देखें"
+
+#: templates/index.html:14
+msgid "Decades Covered"
+msgstr "दशक शामिल"
+
+#: templates/index.html:18
+msgid "Fitness Levels"
+msgstr "फिटनेस स्तर"
+
+#: templates/index.html:22
+msgid "Free to Start"
+msgstr "शुरू करना मुफ़्त"
+
+#: templates/index.html:35
+msgid "Joint-Friendly Strength"
+msgstr "जोड़ों के अनुकूल ताकत"
+
+#: templates/index.html:36
+msgid "Build muscle and bone density with movements that protect your"
+msgstr ""
+"ऐसी मूवमेंट्स से मांसपेशियां और हड्डियों का घनत्व बढ़ाएं जो सुरक्षित रखें "
+"आपके"
+
+#: templates/index.html:36
+msgid "knees, hips, and shoulders"
+msgstr "घुटने, कूल्हे, और कंधे"
+
+#: templates/index.html:40
+msgid "Recovery-First Approach"
+msgstr "रिकवरी-प्राथमिकता वाला तरीका"
+
+#: templates/index.html:41
+msgid "Training plans that respect the recovery time your body needs —"
+msgstr ""
+"ऐसे ट्रेनिंग प्लान जो आपके शरीर की ज़रूरी रिकवरी समय का ध्यान रखते हैं —"
+
+#: templates/index.html:41
+msgid "no burnout, just progress"
+msgstr "कोई थकावट नहीं, सिर्फ प्रगति"
+
+#: templates/index.html:45
+msgid "Mobility & Balance"
+msgstr "गतिशीलता और संतुलन"
+
+#: templates/index.html:46
+msgid ""
+"Stay flexible and steady on your feet with built-in mobility and balance "
+"work."
+msgstr "बिल्ट-इन मोबिलिटी और बैलेंस वर्क के साथ लचीले और स्थिर बने रहें।"
+
+#: templates/login.html:2 templates/login.html:18
+msgid "Log In"
+msgstr "लॉग इन करें"
+
+#: templates/login.html:4
+msgid "Welcome Back"
+msgstr "वापसी पर स्वागत है"
+
+#: templates/login.html:5
+msgid "Log in to pick up right where you left off."
+msgstr "जहां आपने छोड़ा था वहीं से जारी रखने के लिए लॉग इन करें।"
+
+#: templates/login.html:21
+msgid "Forgot your password?"
+msgstr "अपना पासवर्ड भूल गए?"
+
+#: templates/login.html:24
+msgid "Don't have an account?"
+msgstr "खाता नहीं है?"
+
+#: templates/membership.html:4
+msgid "Level up your training"
+msgstr "अपनी ट्रेनिंग को अगले स्तर पर ले जाएं"
+
+#: templates/membership.html:5
+msgid "Membership Plans"
+msgstr "सदस्यता योजनाएं"
+
+#: templates/membership.html:6
+msgid "Unlock personalized coaching support with"
+msgstr "इसके साथ व्यक्तिगत कोचिंग सहायता पाएं"
+
+#: templates/membership.html:6
+#, python-format
+msgid "%(site_name)s Premium"
+msgstr "%(site_name)s प्रीमियम"
+
+#: templates/membership.html:11
+msgid "Free"
+msgstr "मुफ़्त"
+
+#: templates/membership.html:12
+msgid "Get started"
+msgstr "शुरू करें"
+
+#: templates/membership.html:14
+msgid "Access to all workout plans"
+msgstr "सभी वर्कआउट प्लान तक पहुंच"
+
+#: templates/membership.html:15
+msgid "Safety tips & guidance"
+msgstr "सुरक्षा सुझाव और मार्गदर्शन"
+
+#: templates/membership.html:16
+msgid "Interactive progress checklist"
+msgstr "इंटरैक्टिव प्रगति चेकलिस्ट"
+
+#: templates/membership.html:17
+msgid "BMI calculator"
+msgstr "BMI कैलकुलेटर"
+
+#: templates/membership.html:26
+msgid "Everything in Free"
+msgstr "मुफ़्त प्लान की हर चीज़"
+
+#: templates/membership.html:27
+msgid "Personalized plan adjustments"
+msgstr "व्यक्तिगत प्लान समायोजन"
+
+#: templates/membership.html:28
+msgid "Priority email coaching support"
+msgstr "प्राथमिकता ईमेल कोचिंग सहायता"
+
+#: templates/membership.html:33
+msgid "You're a Premium member. Thanks for your support!"
+msgstr "आप एक प्रीमियम सदस्य हैं। आपके सहयोग के लिए धन्यवाद!"
+
+#: templates/membership.html:38
+msgid "Subscribe with Stripe"
+msgstr "Stripe से सब्सक्राइब करें"
+
+#: templates/membership.html:40
+msgid "You'll be redirected to Stripe's secure checkout."
+msgstr "आपको Stripe के सुरक्षित चेकआउट पर भेजा जाएगा।"
+
+#: templates/membership.html:43
+msgid "Card payments aren't configured yet. Add"
+msgstr "कार्ड भुगतान अभी सेट नहीं किया गया है। जोड़ें"
+
+#: templates/membership.html:45
+msgid "to a"
+msgstr "को एक"
+
+#: templates/membership.html:45 templates/membership.html:67
+msgid "file — see"
+msgstr "फ़ाइल में — देखें"
+
+#: templates/membership.html:45 templates/membership.html:67
+msgid "for setup steps."
+msgstr "सेटअप चरणों के लिए।"
+
+#: templates/membership.html:51
+msgid "Or pay via UPI"
+msgstr "या UPI से भुगतान करें"
+
+#: templates/membership.html:54
+#, python-format
+msgid "UPI QR code for %(vpa)s"
+msgstr "%(vpa)s के लिए UPI QR कोड"
+
+#: templates/membership.html:55
+msgid "Scan with any UPI app — Google Pay, PhonePe, Paytm, BHIM"
+msgstr "किसी भी UPI ऐप से स्कैन करें — Google Pay, PhonePe, Paytm, BHIM"
+
+#: templates/membership.html:57
+msgid "Open in UPI App"
+msgstr "UPI ऐप में खोलें"
+
+#: templates/membership.html:59
+msgid ""
+"UPI payments here aren't auto-verified. After paying, send us the "
+"transaction reference via"
+msgstr ""
+"यहां UPI भुगतान अपने आप सत्यापित नहीं होते। भुगतान के बाद, हमें ट्रांज़ैक्शन"
+" रेफरेंस भेजें"
+
+#: templates/membership.html:60
+msgid "so we can confirm your membership."
+msgstr "ताकि हम आपकी सदस्यता की पुष्टि कर सकें।"
+
+#: templates/membership.html:65
+msgid "UPI isn't configured yet. Add"
+msgstr "UPI अभी सेट नहीं किया गया है। जोड़ें"
+
+#: templates/membership.html:65
+msgid "and optionally"
+msgstr "और वैकल्पिक रूप से"
+
+#: templates/membership.html:66
+msgid "to your"
+msgstr "अपनी"
+
+#: templates/membership.html:74
+msgid "create an account"
+msgstr "खाता बनाएं"
+
+#: templates/membership.html:75
+msgid "to subscribe."
+msgstr "सब्सक्राइब करने के लिए।"
+
+#: templates/reset_password.html:2 templates/reset_password.html:13
+msgid "Reset Password"
+msgstr "पासवर्ड रीसेट करें"
+
+#: templates/reset_password.html:4
+msgid "Choose a New Password"
+msgstr "एक नया पासवर्ड चुनें"
+
+#: templates/safety.html:4
+msgid "Train smart, stay in the game for decades"
+msgstr "समझदारी से ट्रेन करें, दशकों तक खेल में बने रहें"
+
+#: templates/safety.html:5
+msgid "Training Safely at Any Age"
+msgstr "किसी भी उम्र में सुरक्षित ट्रेनिंग"
+
+#: templates/safety.html:6
+msgid ""
+"A few principles that make the biggest difference for long-term results, "
+"plus guidance"
+msgstr ""
+"कुछ सिद्धांत जो दीर्घकालिक नतीजों में सबसे बड़ा फर्क लाते हैं, साथ ही "
+"मार्गदर्शन"
+
+#: templates/safety.html:6
+msgid "specific to your decade"
+msgstr "आपके दशक के लिए खास"
+
+#: templates/signup.html:2 templates/signup.html:19
+msgid "Sign Up"
+msgstr "साइन अप करें"
+
+#: templates/signup.html:4
+msgid "Create Your Account"
+msgstr "अपना खाता बनाएं"
+
+#: templates/signup.html:5
+#, python-format
+msgid "Join %(site_name)s and start training smarter —"
+msgstr "%(site_name)s से जुड़ें और समझदारी से ट्रेनिंग शुरू करें —"
+
+#: templates/signup.html:5
+msgid "free to start, no card required"
+msgstr "शुरू करना मुफ़्त, कार्ड की ज़रूरत नहीं"
+
+#: templates/signup.html:22
+msgid "Already have an account?"
+msgstr "पहले से खाता है?"
+
+#: templates/success.html:2
+msgid "Payment Successful"
+msgstr "भुगतान सफल हुआ"
+
+#: templates/success.html:5
+msgid "You're in!"
+msgstr "आप शामिल हो गए!"
+
+#: templates/success.html:6
+msgid "Your"
+msgstr "आपकी"
+
+#: templates/success.html:6
+msgid "Premium membership"
+msgstr "प्रीमियम सदस्यता"
+
+#: templates/success.html:6
+msgid "is active."
+msgstr "सक्रिय है।"
+
+#: templates/success.html:6
+#, python-format
+msgid "Thanks for joining %(site_name)s —"
+msgstr "%(site_name)s से जुड़ने के लिए धन्यवाद —"
+
+#: templates/success.html:6
+msgid "let's get to work"
+msgstr "चलिए काम शुरू करते हैं"
+
+#: templates/success.html:7
+msgid "Go to Workout Plans"
+msgstr "वर्कआउट प्लान पर जाएं"
+
+#: templates/tools.html:4
+msgid "Know your numbers"
+msgstr "अपने आंकड़े जानें"
+
+#: templates/tools.html:5
+msgid "Fitness Tools"
+msgstr "फिटनेस टूल्स"
+
+#: templates/tools.html:6
+msgid "Quick calculators to help guide your training —"
+msgstr "आपकी ट्रेनिंग में मार्गदर्शन के लिए झटपट कैलकुलेटर —"
+
+#: templates/tools.html:6
+msgid "know your numbers, own your progress"
+msgstr "अपने आंकड़े जानें, अपनी प्रगति के मालिक बनें"
+
+#: templates/tools.html:9
+msgid "Units"
+msgstr "इकाइयां"
+
+#: templates/tools.html:11
+msgid "Metric (kg, cm)"
+msgstr "मीट्रिक (किलो, सेमी)"
+
+#: templates/tools.html:12
+msgid "Imperial (lb, ft/in)"
+msgstr "इंपीरियल (पाउंड, फीट/इंच)"
+
+#: templates/tools.html:18
+msgid "BMI Calculator"
+msgstr "BMI कैलकुलेटर"
+
+#: templates/tools.html:21 templates/tools.html:73
+msgid "Height (ft, in)"
+msgstr "ऊंचाई (फीट, इंच)"
+
+#: templates/tools.html:23 templates/tools.html:75
+msgid "ft"
+msgstr "फीट"
+
+#: templates/tools.html:24 templates/tools.html:76
+msgid "in"
+msgstr "इंच"
+
+#: templates/tools.html:28 templates/tools.html:80
+msgid "e.g. 165"
+msgstr "जैसे 165"
+
+#: templates/tools.html:30 templates/tools.html:82
+msgid "Height (cm)"
+msgstr "ऊंचाई (सेमी)"
+
+#: templates/tools.html:31 templates/tools.html:83
+msgid "e.g. 170"
+msgstr "जैसे 170"
+
+#: templates/tools.html:34 templates/tools.html:86
+msgid "e.g. 75"
+msgstr "जैसे 75"
+
+#: templates/tools.html:37
+msgid "Age (optional)"
+msgstr "उम्र (वैकल्पिक)"
+
+#: templates/tools.html:38 templates/tools.html:59 templates/tools.html:90
+msgid "e.g. 45"
+msgstr "जैसे 45"
+
+#: templates/tools.html:40 templates/tools.html:92 templates/tools.html:156
+msgid "Sex (optional)"
+msgstr "लिंग (वैकल्पिक)"
+
+#: templates/tools.html:42 templates/tools.html:94 templates/tools.html:158
+msgid "Prefer not to say"
+msgstr "बताना नहीं चाहते"
+
+#: templates/tools.html:43 templates/tools.html:95 templates/tools.html:159
+msgid "Male"
+msgstr "पुरुष"
+
+#: templates/tools.html:44 templates/tools.html:96 templates/tools.html:160
+msgid "Female"
+msgstr "महिला"
+
+#: templates/tools.html:47 templates/tools.html:61 templates/tools.html:108
+#: templates/tools.html:130 templates/tools.html:163
+msgid "Calculate"
+msgstr "गणना करें"
+
+#: templates/tools.html:51
+msgid ""
+"BMI itself is calculated the same way regardless of sex — it's just weight "
+"and height. Add your age and sex above and we'll also estimate body fat "
+"percentage (Deurenberg formula), which does account for the difference — "
+"women typically carry more body fat than men at the same BMI. Both are "
+"estimates, not diagnoses, and the body fat formula is less accurate for very"
+" muscular people."
+msgstr ""
+"BMI की गणना लिंग की परवाह किए बिना उसी तरह की जाती है — यह सिर्फ वज़न और "
+"ऊंचाई पर आधारित है। ऊपर अपनी उम्र और लिंग जोड़ें और हम बॉडी फैट प्रतिशत का "
+"भी अनुमान लगाएंगे (Deurenberg फॉर्मूला), जो इस अंतर को ध्यान में रखता है — "
+"समान BMI पर महिलाओं में आमतौर पर पुरुषों की तुलना में ज़्यादा बॉडी फैट होता "
+"है। दोनों अनुमान हैं, निदान नहीं, और बॉडी फैट फॉर्मूला बहुत मांसल लोगों के "
+"लिए कम सटीक है।"
+
+#: templates/tools.html:56
+msgid "Target Heart Rate Zones"
+msgstr "लक्षित हृदय गति ज़ोन"
+
+#: templates/tools.html:58 templates/tools.html:89
+msgid "Age"
+msgstr "उम्र"
+
+#: templates/tools.html:65
+msgid ""
+"Uses the common \"220 minus age\" formula for estimated maximum heart rate —"
+" a general estimate, not a measurement; actual max heart rate varies by "
+"individual. If you take heart-rate-affecting medication or have a heart "
+"condition, ask your doctor for a personalized target."
+msgstr ""
+"अनुमानित अधिकतम हृदय गति के लिए आम \"220 माइनस उम्र\" फॉर्मूला इस्तेमाल करता"
+" है — यह एक सामान्य अनुमान है, माप नहीं; असली अधिकतम हृदय गति व्यक्ति के "
+"हिसाब से अलग होती है। अगर आप हृदय गति को प्रभावित करने वाली दवा लेते हैं या "
+"आपको हृदय संबंधी समस्या है, तो व्यक्तिगत लक्ष्य के लिए डॉक्टर से सलाह लें।"
+
+#: templates/tools.html:70
+msgid "Daily Calorie Needs"
+msgstr "दैनिक कैलोरी ज़रूरत"
+
+#: templates/tools.html:99
+msgid "Activity Level"
+msgstr "गतिविधि स्तर"
+
+#: templates/tools.html:101
+msgid "Sedentary (little or no exercise)"
+msgstr "निष्क्रिय (बहुत कम या कोई व्यायाम नहीं)"
+
+#: templates/tools.html:102
+msgid "Light (exercise 1–3 days/week)"
+msgstr "हल्का (हफ्ते में 1–3 दिन व्यायाम)"
+
+#: templates/tools.html:103
+msgid "Moderate (exercise 3–5 days/week)"
+msgstr "मध्यम (हफ्ते में 3–5 दिन व्यायाम)"
+
+#: templates/tools.html:104
+msgid "Active (exercise 6–7 days/week)"
+msgstr "सक्रिय (हफ्ते में 6–7 दिन व्यायाम)"
+
+#: templates/tools.html:105
+msgid "Very active (hard exercise, physical job)"
+msgstr "बहुत सक्रिय (कठिन व्यायाम, शारीरिक काम)"
+
+#: templates/tools.html:112
+msgid ""
+"Uses the Mifflin-St Jeor equation, a standard estimate of daily calorie "
+"needs — not a prescription. Individual needs vary; check with a doctor or "
+"registered dietitian before making major dietary changes, especially if you "
+"have a medical condition."
+msgstr ""
+"Mifflin-St Jeor समीकरण का उपयोग करता है, जो दैनिक कैलोरी ज़रूरत का एक मानक "
+"अनुमान है — कोई सलाह नहीं। व्यक्तिगत ज़रूरतें अलग-अलग होती हैं; बड़ा आहार "
+"बदलाव करने से पहले, खासकर किसी स्वास्थ्य समस्या के साथ, डॉक्टर या रजिस्टर्ड "
+"डाइटिशियन से सलाह लें।"
+
+#: templates/tools.html:117
+msgid "1-Rep Max Estimator"
+msgstr "वन-रेप मैक्स एस्टिमेटर"
+
+#: templates/tools.html:120
+msgid "Weight Lifted (lb)"
+msgstr "उठाया गया वज़न (पाउंड)"
+
+#: templates/tools.html:121
+msgid "e.g. 135"
+msgstr "जैसे 135"
+
+#: templates/tools.html:123
+msgid "Weight Lifted (kg)"
+msgstr "उठाया गया वज़न (किलो)"
+
+#: templates/tools.html:124
+msgid "e.g. 60"
+msgstr "जैसे 60"
+
+#: templates/tools.html:127
+msgid "Reps Completed"
+msgstr "पूरे किए गए रेप्स"
+
+#: templates/tools.html:128
+msgid "e.g. 8"
+msgstr "जैसे 8"
+
+#: templates/tools.html:135
+msgid ""
+"Uses the Epley formula to estimate a one-rep max from a lighter, higher-rep "
+"set — most accurate under about 10–12 reps. This is a training estimate, not"
+" a number to attempt untested; work up to any new max carefully, ideally "
+"with a spotter."
+msgstr ""
+"हल्के, ज़्यादा-रेप वाले सेट से वन-रेप मैक्स का अनुमान लगाने के लिए Epley "
+"फॉर्मूला इस्तेमाल करता है — लगभग 10–12 रेप्स तक सबसे सटीक। यह एक ट्रेनिंग "
+"अनुमान है, बिना आज़माए कोशिश करने का आंकड़ा नहीं; किसी भी नए मैक्स तक "
+"सावधानी से पहुंचें, बेहतर होगा किसी स्पॉटर के साथ।"
+
+#: templates/tools.html:140
+msgid "Waist-to-Hip Ratio"
+msgstr "कमर-से-कूल्हे अनुपात"
+
+#: templates/tools.html:143
+msgid "Waist (in)"
+msgstr "कमर (इंच)"
+
+#: templates/tools.html:144
+msgid "e.g. 34"
+msgstr "जैसे 34"
+
+#: templates/tools.html:146
+msgid "Hips (in)"
+msgstr "कूल्हे (इंच)"
+
+#: templates/tools.html:147
+msgid "e.g. 40"
+msgstr "जैसे 40"
+
+#: templates/tools.html:149
+msgid "Waist (cm)"
+msgstr "कमर (सेमी)"
+
+#: templates/tools.html:150
+msgid "e.g. 86"
+msgstr "जैसे 86"
+
+#: templates/tools.html:152
+msgid "Hips (cm)"
+msgstr "कूल्हे (सेमी)"
+
+#: templates/tools.html:153
+msgid "e.g. 102"
+msgstr "जैसे 102"
+
+#: templates/tools.html:167
+msgid ""
+"Unlike BMI, waist-to-hip ratio uses different risk categories for men and "
+"women — measure your waist just above the belly button, and your hips at "
+"their widest point. A general health indicator, not a diagnosis."
+msgstr ""
+"BMI के विपरीत, कमर-से-कूल्हे अनुपात पुरुषों और महिलाओं के लिए अलग-अलग जोखिम "
+"श्रेणियां इस्तेमाल करता है — अपनी कमर को नाभि से थोड़ा ऊपर और कूल्हों को "
+"उनके सबसे चौड़े हिस्से पर मापें। यह एक सामान्य स्वास्थ्य संकेतक है, निदान "
+"नहीं।"
+
+#: templates/workouts.html:4
+msgid "Every level here is a real, complete plan"
+msgstr "यहां हर स्तर एक असली, पूरा प्लान है"
+
+#: templates/workouts.html:6
+msgid "Pick the level that matches where you are today."
+msgstr "वह स्तर चुनें जो आज आपकी स्थिति से मेल खाता हो।"
+
+#: templates/workouts.html:6
+msgid "It's fine to start slow and build up"
+msgstr "धीरे शुरू करना और फिर आगे बढ़ना बिल्कुल ठीक है"
+
+#: templates/workouts.html:6
+msgid "there's no wrong place to begin."
+msgstr "शुरू करने की कोई गलत जगह नहीं होती।"
+
+#: templates/workouts.html:14
+msgid "Recommended for you"
+msgstr "आपके लिए सुझाया गया"
+
+#: templates/workouts.html:18
+msgid "days / week"
+msgstr "दिन / हफ्ता"
+
+#: templates/workouts.html:24
+#, python-format
+msgid "Day %(n)s"
+msgstr "दिन %(n)s"
+
+#: templates/workouts.html:32
+msgid "Watch"
+msgstr "देखें"
+
+#~ msgid "1.2–1.6 g per kg of bodyweight"
+#~ msgstr "शरीर के वज़न के प्रति किलो 1.2–1.6 ग्राम"
+
+#~ msgid "1.4–1.8 g per kg of bodyweight"
+#~ msgstr "शरीर के वज़न के प्रति किलो 1.4–1.8 ग्राम"
+
+#~ msgid "2.5–3.5 L per day"
+#~ msgstr "प्रतिदिन 2.5–3.5 लीटर"
+
+#~ msgid "1.6–2.0 g per kg of bodyweight"
+#~ msgstr "शरीर के वज़न के प्रति किलो 1.6–2.0 ग्राम"
+
+#~ msgid "2.3–3.2 L per day"
+#~ msgstr "प्रतिदिन 2.3–3.2 लीटर"
+
+#~ msgid "1.6–2.2 g per kg of bodyweight"
+#~ msgstr "शरीर के वज़न के प्रति किलो 1.6–2.2 ग्राम"
+
+#~ msgid "2.3–3 L per day"
+#~ msgstr "प्रतिदिन 2.3–3 लीटर"
+
+#~ msgid "1.8–2.2 g per kg of bodyweight"
+#~ msgstr "शरीर के वज़न के प्रति किलो 1.8–2.2 ग्राम"

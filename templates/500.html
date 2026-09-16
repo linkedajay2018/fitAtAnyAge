@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Something Went Wrong') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>{{ _('Something Went Wrong') }}</h1>
+    <p>{{ _('An unexpected error occurred on our end. Please try again in a moment.') }}</p>
+    <a class="cta" href="{{ url_for('index') }}">{{ _('Back to Home') }}</a>
+</div>
+{% endblock %}

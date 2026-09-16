@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Payment Successful') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>{{ _("You're in!") }} 🎉</h1>
+    <p>{{ _('Your') }} <strong>{{ _('Premium membership') }}</strong> {{ _('is active.') }} {{ _('Thanks for joining %(site_name)s —', site_name=site_name) }} <strong>{{ _("let's get to work") }}</strong>.</p>
+    <a class="cta" href="{{ url_for('workouts') }}">🚀 {{ _('Go to Workout Plans') }}</a>
+</div>
+{% endblock %}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="{{ current_locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{% block title %}{{ site_name }} — {{ site_tagline }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ site_description }}{% endblock %}">
+    <link rel="canonical" href="{{ site_url.rstrip('/') }}{{ request.path }}">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site_name }}">
+    <meta property="og:title" content="{% block og_title %}{{ site_name }} — {{ site_tagline }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ site_description }}{% endblock %}">
+    <meta property="og:url" content="{{ site_url.rstrip('/') }}{{ request.path }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ self.og_title() }}">
+    <meta name="twitter:description" content="{{ self.og_description() }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ site_name | tojson }},
+        "description": {{ site_description | tojson }},
+        "url": {{ site_url | tojson }}
+    }
+    </script>
+</head>
+<body data-authenticated="{{ 'true' if current_user.is_authenticated else 'false' }}">
+    <div class="bg-rotator" data-bg-rotator aria-hidden="true"></div>
+    <div class="bg-overlay" aria-hidden="true"></div>
+    <script type="application/json" id="bg-images-data">{{ background_images | tojson }}</script>
+
+    <header>
+        <nav class="navbar">
+            <a class="brand" href="{{ url_for('index') }}">{{ site_name }}</a>
+            <div class="nav-links">
+                <a href="{{ url_for('index') }}">{{ _('Home') }}</a>
+                <a href="{{ url_for('workouts') }}">{{ _('Workout Plans') }}</a>
+                <a href="{{ url_for('diet') }}">{{ _('Diet Plan') }}</a>
+                <a href="{{ url_for('tools') }}">{{ _('Tools') }}</a>
+                <a href="{{ url_for('safety') }}">{{ _('Safety Tips') }}</a>
+                <a href="{{ url_for('membership') }}">{{ _('Membership') }}</a>
+                <a href="{{ url_for('contact') }}">{{ _('Contact') }}</a>
+                {% if current_user.is_authenticated %}
+                    {% if current_user.is_admin %}
+                    <a href="{{ url_for('admin_users') }}">{{ _('Admin') }}</a>
+                    {% endif %}
+                    <a href="{{ url_for('history') }}">{{ _('History') }}</a>
+                    <a href="{{ url_for('account') }}">{{ _('Account') }}</a>
+                    <a href="{{ url_for('logout') }}">{{ _('Log out') }}</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">{{ _('Log in') }}</a>
+                    <a href="{{ url_for('signup') }}">{{ _('Sign up') }}</a>
+                {% endif %}
+                <div class="lang-switcher">
+                    <label class="visually-hidden" for="lang-select">{{ _('Language') }}</label>
+                    <select id="lang-select" data-nav-select>
+                        {% for code, label in available_languages.items() %}
+                        <option value="{{ url_for('set_language', lang_code=code) }}" {% if code == current_locale %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="motivation-banner" data-motivation-banner>
+        <p class="motivation-text">
+            <span aria-hidden="true">🔥</span>
+            <span data-motivation-text>{{ motivation_quote }}</span>
+        </p>
+    </div>
+    <script type="application/json" id="motivation-quotes-data">{{ motivation_quotes | tojson }}</script>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container">
+                    {% for category, message in messages %}
+                        <div class="flash flash-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% if current_user.is_authenticated and not current_user.email_verified %}
+        <div class="flash-container">
+            <div class="flash flash-notice verify-email-notice">
+                <span>✉️ {{ _('Please verify your email address (%(email)s).', email=current_user.email) }}</span>
+                <form method="post" action="{{ url_for('resend_verification') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="link-button">{{ _('Resend verification email') }}</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ copyright_year }} {{ site_name }} — {{ site_tagline }}</p>
+    </footer>
+
+    <div class="chat-widget" data-chat-widget>
+        <button type="button" class="chat-toggle" data-chat-toggle aria-label="{{ _('Open training & diet chat assistant') }}">💬</button>
+        <div class="chat-panel" data-chat-panel hidden>
+            <div class="chat-header">
+                <span>💬 {{ _('Ask about training & diet') }}</span>
+                <button type="button" class="chat-close" data-chat-close aria-label="{{ _('Close chat') }}">✕</button>
+            </div>
+            <div class="chat-messages" data-chat-messages>
+                <div class="chat-message chat-message-bot">{{ _('Hi! Ask me anything about workouts, protein, or hydration. 💪') }}</div>
+            </div>
+            <form class="chat-form" data-chat-form>
+                <input type="text" class="chat-input" data-chat-input placeholder="{{ _('Ask a question…') }}" autocomplete="off" maxlength="500">
+                <button type="submit" class="chat-send">{{ _('Send') }}</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="application/json" id="i18n-strings-data">{{ js_i18n_strings | tojson }}</script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

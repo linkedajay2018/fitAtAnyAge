@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Contact Messages') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<h1>{{ _('Contact Messages') }}</h1>
+
+<div class="admin-nav">
+    <a class="cta secondary small" href="{{ url_for('admin_users') }}">{{ _('Users') }}</a>
+    <a class="cta secondary small" href="{{ url_for('admin_messages') }}">{{ _('Messages') }}</a>
+</div>
+
+<div class="message-list">
+    {% for msg in messages %}
+    <div class="message-card {{ 'message-unread' if not msg.is_read else '' }}">
+        <div class="message-meta">
+            <strong>{{ msg.name }}</strong>
+            <a href="mailto:{{ msg.email }}">{{ msg.email }}</a>
+            <span class="muted">{{ msg.created_at.strftime("%Y-%m-%d %H:%M") }}</span>
+            {% if not msg.is_read %}<span class="badge">{{ _('New') }}</span>{% endif %}
+        </div>
+        <p class="message-body">{{ msg.message }}</p>
+        <div class="message-actions">
+            <form method="post" action="{{ url_for('admin_toggle_message_read', message_id=msg.id) }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="cta secondary small">
+                    {{ _('Mark Unread') if msg.is_read else _('Mark Read') }}
+                </button>
+            </form>
+            <form method="post" action="{{ url_for('admin_delete_message', message_id=msg.id) }}"
+                  data-confirm="{{ _('Delete this message?') }}">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button type="submit" class="cta danger small">{{ _('Delete') }}</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <p class="muted">{{ _('No messages yet.') }}</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Contact') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">💬 {{ _("We're here to help") }}</span>
+<h1>{{ _('Get in Touch') }}</h1>
+<p class="page-lead">{{ _('Questions about a plan, or want coaching advice?') }} <strong>{{ _("We'd love to hear from you.") }}</strong> {{ _("(Or ask our chat assistant in the corner — it's faster for quick questions.)") }}</p>
+
+<form class="contact-form" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+    <label for="name">{{ _('Name') }}</label>
+    <input type="text" id="name" name="name" placeholder="{{ _('Your name') }}">
+
+    <label for="email">{{ _('Email') }}</label>
+    <input type="email" id="email" name="email" placeholder="{{ _('Your email') }}" value="{{ current_user.email if current_user.is_authenticated else '' }}">
+
+    <label for="message">{{ _('Message') }}</label>
+    <textarea id="message" name="message" rows="5" placeholder="{{ _('How can we help?') }}"></textarea>
+
+    <button type="submit">{{ _('Send Message') }}</button>
+</form>
+{% endblock %}

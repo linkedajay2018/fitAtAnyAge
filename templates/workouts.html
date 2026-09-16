@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Workout Plans') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">🏋️ {{ _('Every level here is a real, complete plan') }}</span>
+<h1>{{ _('Workout Plans') }}</h1>
+<p class="page-lead">{{ _("Pick the level that matches where you are today.") }} <strong>{{ _("It's fine to start slow and build up") }}</strong> — {{ _("there's no wrong place to begin.") }}</p>
+
+{% include "_age_selector.html" %}
+<p class="age-recommendation" data-age-recommendation hidden></p>
+
+<div class="plans">
+    {% for plan in plans %}
+    <div class="plan-card" data-plan="{{ plan.level_id }}">
+        <span class="recommended-badge" data-recommended-badge hidden>⭐ {{ _('Recommended for you') }}</span>
+        <span class="plan-icon">{{ plan.icon }}</span>
+        <h2>{{ plan.level }}</h2>
+        <p class="focus">{{ plan.focus }}</p>
+        <p class="freq"><strong>{{ plan.days_per_week }}</strong> {{ _('days / week') }}</p>
+        <div class="progress-track">
+            <div class="progress-bar" data-progress-for="{{ plan.level_id }}">0%</div>
+        </div>
+        {% for day in plan.schedule %}
+        <div class="schedule-day">
+            <h3 class="schedule-day-heading">{{ _('Day %(n)s', n=day.day_number) }}: {{ day.focus }}</h3>
+            <ul class="checklist">
+                {% for exercise in day.exercises %}
+                <li data-exercise-index="{{ exercise.index }}">
+                    <label>
+                        <input type="checkbox" value="{{ exercise.index }}">
+                        <span data-exercise-label>{{ exercise.label }}</span>
+                    </label>
+                    <a class="video-link" data-exercise-video href="{{ exercise.video_url }}" target="_blank" rel="noopener noreferrer">▶ {{ _('Watch') }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+<script type="application/json" id="age-guidance-data">{{ age_guidance | tojson }}</script>
+<script type="application/json" id="workout-exercises-data">{{ exercises_by_age | tojson }}</script>
+{% endblock %}

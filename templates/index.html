@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ site_name }} — {{ site_tagline }}{% endblock %}
+{% block content %}
+<section class="hero">
+    <span class="kicker">💪 {{ _('No matter your age, your strongest self is ahead of you') }}</span>
+    <h1>{{ _('Strong, Mobile, and Unstoppable — at Any Age') }}</h1>
+    <p class="page-lead">{{ _('Workout plans built around') }} <strong>{{ _('joint health') }}</strong>, <strong>{{ _('smart recovery') }}</strong>,
+       {{ _('and') }} <strong>{{ _('sustainable strength') }}</strong> — {{ _('tailored to your decade, from your 20s through your 70s.') }}</p>
+    <a class="cta" href="{{ url_for('workouts') }}">🚀 {{ _('See Workout Plans') }}</a>
+
+    <div class="stat-strip">
+        <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label">{{ _('Decades Covered') }}</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">{{ _('Fitness Levels') }}</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">{{ _('Free to Start') }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="age-picker-section">
+    {% include "_age_selector.html" %}
+    <p class="age-recommendation" data-age-recommendation hidden></p>
+</section>
+
+<section class="features">
+    <div class="card">
+        <span class="card-icon">🦴</span>
+        <h3>{{ _('Joint-Friendly Strength') }}</h3>
+        <p>{{ _('Build muscle and bone density with movements that protect your') }} <strong>{{ _('knees, hips, and shoulders') }}</strong>.</p>
+    </div>
+    <div class="card">
+        <span class="card-icon">🔋</span>
+        <h3>{{ _('Recovery-First Approach') }}</h3>
+        <p>{{ _('Training plans that respect the recovery time your body needs —') }} <strong>{{ _('no burnout, just progress') }}</strong>.</p>
+    </div>
+    <div class="card">
+        <span class="card-icon">⚖️</span>
+        <h3>{{ _('Mobility & Balance') }}</h3>
+        <p>{{ _('Stay flexible and steady on your feet with built-in mobility and balance work.') }}</p>
+    </div>
+</section>
+
+<script type="application/json" id="age-guidance-data">{{ age_guidance | tojson }}</script>
+{% endblock %}

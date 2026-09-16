@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Admin') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<h1>{{ _('Admin — Users') }}</h1>
+<p class="muted">
+    {{ _("Stripe payments confirm Premium automatically. UPI has no automatic confirmation — use the button below to mark a member Premium once you've verified their payment (match the reference number shown in their UPI transaction note to the user ID here).") }}
+</p>
+
+<div class="admin-nav">
+    <a class="cta secondary small" href="{{ url_for('admin_users') }}">{{ _('Users') }}</a>
+    <a class="cta secondary small" href="{{ url_for('admin_messages') }}">
+        {{ _('Messages') }}{% if unread_message_count %} <span class="badge">{{ unread_message_count }}</span>{% endif %}
+    </a>
+</div>
+
+<form class="admin-search" method="get">
+    <input type="search" name="q" value="{{ query }}" placeholder="{{ _('Search by email…') }}">
+    <button type="submit" class="cta small">{{ _('Search') }}</button>
+    {% if query %}<a class="cta secondary small" href="{{ url_for('admin_users') }}">{{ _('Clear') }}</a>{% endif %}
+</form>
+
+<div class="admin-table-wrap">
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>{{ _('ID') }}</th>
+                <th>{{ _('Email') }}</th>
+                <th>{{ _('Joined') }}</th>
+                <th>{{ _('Premium') }}</th>
+                <th>{{ _('Admin') }}</th>
+                <th>{{ _('Action') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.created_at.strftime("%Y-%m-%d") }}</td>
+                <td>{{ _("Yes") if user.is_premium else _("No") }}</td>
+                <td>{{ _("Yes") if user.is_admin else _("No") }}</td>
+                <td>
+                    <form method="post" action="{{ url_for('admin_toggle_premium', user_id=user.id) }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="q" value="{{ query }}">
+                        <button type="submit" class="cta secondary small">
+                            {{ _("Remove Premium") if user.is_premium else _("Mark Premium") }}
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="6" class="muted">{{ _('No users match that search.') }}</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

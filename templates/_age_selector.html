@@ -1,0 +1,9 @@
+<div class="age-selector" data-age-selector>
+    <span class="age-selector-label">🎂 {{ _('Get tips for your age:') }}</span>
+    <div class="age-pills">
+        {% for group in age_groups %}
+        <button type="button" class="age-pill" data-age="{{ group.id }}">{{ group.icon }} {{ group.label }}</button>
+        {% endfor %}
+        <button type="button" class="age-pill age-pill-clear" data-age="">{{ _('Any age') }}</button>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Diet Plan') }} — {{ site_name }}{% endblock %}
+{% block description %}{{ _('Age-specific protein and hydration targets, meal tips, and protein source ideas — from your 20s through your 70s.') }}{% endblock %}
+{% block content %}
+<span class="kicker">🍽️ {{ _('Eat smart, train hard') }}</span>
+<h1>{{ _('Diet Plan') }}</h1>
+<p class="page-lead">{{ _('Protein') }} <strong>{{ _('and') }}</strong> {{ _('hydration needs actually') }} <strong>{{ _('go up') }}</strong> {{ _('as you age, not down.') }}
+   {{ _('Get your targets and practical food sources below —') }} <strong>{{ _('tailored to your decade') }}</strong>.</p>
+
+{% include "_age_selector.html" %}
+
+<div class="age-accordion" data-age-accordion>
+    {% for group in age_groups %}
+    <details class="age-details" data-age-details="{{ group.id }}">
+        <summary>{{ group.icon }} {{ _('In your %(label)s (%(range)s)', label=group.label, range=group.range) }}</summary>
+        <p class="age-blurb">{{ diet_guidance[group.id].focus }}</p>
+        <p class="protein-target">🎯 {{ _('Protein:') }} <strong>{{ diet_guidance[group.id].protein_target_display }}</strong> {{ _('per day') }}</p>
+        <p class="protein-target hydration-target">💧 {{ _('Water:') }} <strong>{{ diet_guidance[group.id].hydration_target_display }}</strong></p>
+        <p class="age-blurb">{{ diet_guidance[group.id].hydration_tip }}</p>
+        <ul class="tips check-list">
+            {% for tip in diet_guidance[group.id].tips %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </details>
+    {% endfor %}
+</div>
+
+<h2 class="section-heading">🥩 {{ _('Protein Sources') }}</h2>
+<p><strong>{{ _('Mix and match') }}</strong> {{ _('from whichever list fits how you eat.') }}</p>
+
+<div class="protein-sources">
+    {% for group in protein_sources %}
+    <div class="protein-card">
+        <h3>{{ group.icon }} {{ group.category }}</h3>
+        <ul class="check-list">
+            {% for food in group.foods %}
+            <li>{{ food }}</li>
+            {% endfor %}
+        </ul>
+        {% if group.category_id == "supplements" %}
+        <p class="muted supplement-note">💡 {{ supplement_note }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<p class="muted diet-disclaimer">
+    ⚠️ {{ _('This is general nutrition information, not medical advice. Protein grams are approximate. If you have kidney disease, are pregnant, or have another condition affecting protein or fluid needs, talk to a doctor or registered dietitian before changing your intake.') }}
+</p>
+{% endblock %}

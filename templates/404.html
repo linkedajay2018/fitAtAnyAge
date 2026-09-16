@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Page Not Found') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<div class="hero">
+    <span class="kicker">🧭 {{ _('Even the best training plans take a wrong turn sometimes') }}</span>
+    <h1>{{ _('Page Not Found') }}</h1>
+    <p>{{ _("The page you're looking for doesn't exist or may have moved.") }} <strong>{{ _("Let's get you back on track.") }}</strong></p>
+    <a class="cta" href="{{ url_for('index') }}">{{ _('Back to Home') }}</a>
+</div>
+{% endblock %}

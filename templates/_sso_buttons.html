@@ -1,0 +1,10 @@
+{% if sso_providers %}
+<div class="sso-buttons">
+    {% for provider in sso_providers %}
+    <a class="sso-btn sso-btn-{{ provider.id }}" href="{{ url_for('sso_login', provider=provider.id, next=request.args.get('next')) }}">
+        {{ _('Continue with %(provider)s', provider=provider.label) }}
+    </a>
+    {% endfor %}
+</div>
+<div class="sso-divider"><span>{{ _('or') }}</span></div>
+{% endif %}

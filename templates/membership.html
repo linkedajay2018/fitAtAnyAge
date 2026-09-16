@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Membership') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">🌟 {{ _('Level up your training') }}</span>
+<h1>{{ _('Membership Plans') }}</h1>
+<p class="page-lead">{{ _('Unlock personalized coaching support with') }} <strong>{{ _('%(site_name)s Premium', site_name=site_name) }}</strong>.</p>
+
+<div class="plans">
+    <div class="plan-card">
+        <span class="plan-icon">🆓</span>
+        <h2>{{ _('Free') }}</h2>
+        <p class="focus">{{ _('Get started') }}</p>
+        <ul class="check-list">
+            <li>{{ _('Access to all workout plans') }}</li>
+            <li>{{ _('Safety tips & guidance') }}</li>
+            <li>{{ _('Interactive progress checklist') }}</li>
+            <li>{{ _('BMI calculator') }}</li>
+        </ul>
+    </div>
+
+    <div class="plan-card highlight">
+        <span class="plan-icon">⭐</span>
+        <h2>{{ _('Premium') }}</h2>
+        <p class="focus"><strong>{{ premium_price_label }}</strong></p>
+        <ul class="check-list">
+            <li>{{ _('Everything in Free') }}</li>
+            <li>{{ _('Personalized plan adjustments') }}</li>
+            <li>{{ _('Priority email coaching support') }}</li>
+        </ul>
+
+        {% if current_user.is_authenticated %}
+            {% if current_user.is_premium %}
+            <p class="upi-id">✅ {{ _("You're a Premium member. Thanks for your support!") }}</p>
+            {% else %}
+                {% if stripe_configured %}
+                <form method="post" action="{{ url_for('create_checkout_session') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button type="submit" class="cta">{{ _('Subscribe with Stripe') }}</button>
+                </form>
+                <p class="muted">{{ _("You'll be redirected to Stripe's secure checkout.") }}</p>
+                {% else %}
+                <p class="muted">
+                    {{ _('Card payments aren\'t configured yet. Add') }} <code>STRIPE_SECRET_KEY</code>,
+                    <code>STRIPE_PUBLISHABLE_KEY</code>, {{ _('and') }} <code>STRIPE_PRICE_ID</code>
+                    {{ _('to a') }} <code>.env</code> {{ _('file — see') }} <code>.env.example</code> {{ _('for setup steps.') }}
+                </p>
+                {% endif %}
+
+                <hr class="divider">
+
+                <h3>📱 {{ _('Or pay via UPI') }}</h3>
+                {% if upi_configured %}
+                <div class="upi-pay">
+                    <img src="{{ url_for('upi_qr') }}" alt="{{ _('UPI QR code for %(vpa)s', vpa=upi_vpa) }}" class="upi-qr">
+                    <p class="muted">{{ _('Scan with any UPI app — Google Pay, PhonePe, Paytm, BHIM') }}</p>
+                    <p class="upi-id">{{ upi_vpa }} &middot; ₹{{ upi_amount }}</p>
+                    <a class="cta secondary" href="{{ upi_uri }}">{{ _('Open in UPI App') }}</a>
+                    <p class="muted">
+                        {{ _('UPI payments here aren\'t auto-verified. After paying, send us the transaction reference via') }} <a href="{{ url_for('contact') }}">{{ _('Contact') }}</a>
+                        {{ _('so we can confirm your membership.') }}
+                    </p>
+                </div>
+                {% else %}
+                <p class="muted">
+                    {{ _('UPI isn\'t configured yet. Add') }} <code>UPI_VPA</code> ({{ _('and optionally') }}
+                    <code>UPI_PAYEE_NAME</code>, <code>UPI_AMOUNT</code>) {{ _('to your') }}
+                    <code>.env</code> {{ _('file — see') }} <code>.env.example</code> {{ _('for setup steps.') }}
+                </p>
+                {% endif %}
+            {% endif %}
+        {% else %}
+        <p class="muted">
+            <a href="{{ url_for('login', next=url_for('membership')) }}">{{ _('Log in') }}</a>
+            {{ _('or') }} <a href="{{ url_for('signup', next=url_for('membership')) }}">{{ _('create an account') }}</a>
+            {{ _('to subscribe.') }}
+        </p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

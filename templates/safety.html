@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ _('Safety Tips') }} — {{ site_name }}{% endblock %}
+{% block content %}
+<span class="kicker">🛡️ {{ _('Train smart, stay in the game for decades') }}</span>
+<h1>{{ _('Training Safely at Any Age') }}</h1>
+<p class="page-lead">{{ _('A few principles that make the biggest difference for long-term results, plus guidance') }} <strong>{{ _('specific to your decade') }}</strong>.</p>
+
+<ul class="tips check-list">
+    {% for tip in general_tips %}
+    <li>{{ tip }}</li>
+    {% endfor %}
+</ul>
+
+{% include "_age_selector.html" %}
+
+<div class="age-accordion" data-age-accordion>
+    {% for group in age_groups %}
+    <details class="age-details" data-age-details="{{ group.id }}">
+        <summary>{{ group.icon }} {{ _('In your %(label)s (%(range)s)', label=group.label, range=group.range) }}</summary>
+        <p class="age-blurb">{{ age_guidance[group.id].blurb }}</p>
+        <ul class="tips check-list">
+            {% for tip in age_guidance[group.id].safety_tips %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+        </ul>
+    </details>
+    {% endfor %}
+</div>
+{% endblock %}
