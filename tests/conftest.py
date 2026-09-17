@@ -22,8 +22,8 @@ def _cleanup_test_db():
 
 import pytest
 
-from fitafter40 import app as app_module
-from fitafter40.core.models import db as db_module
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core.models import db as db_module
 
 
 @pytest.fixture(autouse=True)

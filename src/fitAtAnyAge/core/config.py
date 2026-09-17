@@ -11,7 +11,7 @@ def _bool_env(name, default="false"):
 
 # --- Flask / security -------------------------------------------------
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
-DATABASE_URL = os.environ.get("DATABASE_URL")  # None -> app.py builds instance/fitafter40.db
+DATABASE_URL = os.environ.get("DATABASE_URL")  # None -> app.py builds instance/fitAtAnyAge.db
 PORT = int(os.environ.get("PORT", "5050"))
 DEBUG = _bool_env("FLASK_DEBUG", "true")
 
@@ -113,7 +113,7 @@ UPI_CONFIGURED = bool(UPI_VPA)
 
 # --- Tracing ---------------------------------------------------------------
 ENABLE_TRACING = _bool_env("ENABLE_TRACING", "true")
-OTEL_SERVICE_NAME = os.environ.get("OTEL_SERVICE_NAME", "fitafter40")
+OTEL_SERVICE_NAME = os.environ.get("OTEL_SERVICE_NAME", "fitAtAnyAge")
 OTEL_EXPORTER_OTLP_ENDPOINT = os.environ.get("OTEL_EXPORTER_OTLP_ENDPOINT")
 
 # --- Chatbot -------------------------------------------------------------

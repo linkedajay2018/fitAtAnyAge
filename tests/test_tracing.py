@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 from flask import Flask
 from opentelemetry.sdk.trace import TracerProvider
 
-from fitafter40.utils import tracing as tracing_module
+from fitAtAnyAge.utils import tracing as tracing_module
 
 
 def test_configure_tracing_sets_a_real_tracer_provider(monkeypatch):

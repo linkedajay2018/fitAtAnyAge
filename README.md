@@ -13,7 +13,6 @@ architecture, feature details, and design rationale, see [CLAUDE.md](CLAUDE.md).
 ## Setup
 
 ```bash
-cd fitafter40
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -35,7 +34,7 @@ python -c "import secrets; print(secrets.token_hex(32))"
 
 ```bash
 source venv/bin/activate
-python app.py
+python run.py
 ```
 
 Open **http://127.0.0.1:5050**. Stop with `Ctrl+C`, then `deactivate` to
@@ -63,8 +62,8 @@ containers.
 Plain Docker, without Compose:
 
 ```bash
-docker build -t fitafter40 .
-docker run --rm -p 5050:5050 --env-file .env -v "$(pwd)/instance:/app/instance" fitafter40
+docker build -t fitAtAnyAge .
+docker run --rm -p 5050:5050 --env-file .env -v "$(pwd)/instance:/app/instance" fitAtAnyAge
 ```
 
 ## Translations

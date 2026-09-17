@@ -1,4 +1,4 @@
-from fitafter40.core.content import WORKOUT_PLANS
+from fitAtAnyAge.core.content import WORKOUT_PLANS
 
 
 def test_schedule_day_count_matches_days_per_week():

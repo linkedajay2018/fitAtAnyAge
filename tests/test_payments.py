@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 
-from fitafter40 import app as app_module
-from fitafter40.core import config
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core import config
 
 from helpers import signup
 
@@ -44,7 +44,7 @@ def test_membership_shows_premium_status_instead_of_buttons(client, monkeypatch)
     monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", True)
     signup(client)
     with app_module.app.app_context():
-        from fitafter40.core.models import User, db
+        from fitAtAnyAge.core.models import User, db
 
         user = User.query.filter_by(email="alex@example.com").first()
         user.is_premium = True
@@ -73,7 +73,7 @@ def test_checkout_session_redirects_to_stripe_when_configured(client, monkeypatc
     signup(client)
     fake_session = MagicMock(url="https://checkout.stripe.com/test-session")
 
-    with patch("fitafter40.app.stripe.checkout.Session.create", return_value=fake_session) as mock_create:
+    with patch("fitAtAnyAge.app.stripe.checkout.Session.create", return_value=fake_session) as mock_create:
         resp = client.post("/create-checkout-session")
 
     assert resp.status_code == 303
@@ -87,7 +87,7 @@ def test_checkout_session_handles_stripe_error_gracefully(client, monkeypatch):
     monkeypatch.setattr(app_module.config, "STRIPE_PRICE_ID", "price_123")
     signup(client)
 
-    with patch("fitafter40.app.stripe.checkout.Session.create", side_effect=Exception("boom")):
+    with patch("fitAtAnyAge.app.stripe.checkout.Session.create", side_effect=Exception("boom")):
         resp = client.post("/create-checkout-session", follow_redirects=True)
 
     assert resp.status_code == 200

@@ -26,9 +26,9 @@ from flask_wtf import CSRFProtect
 from opentelemetry import trace
 from opentelemetry.trace import Status, StatusCode
 
-from fitafter40.core import config
-from fitafter40.services.chatbot import get_ai_reply, get_faq_reply
-from fitafter40.core.content import (
+from fitAtAnyAge.core import config
+from fitAtAnyAge.services.chatbot import get_ai_reply, get_faq_reply
+from fitAtAnyAge.core.content import (
     AGE_GROUPS,
     AGE_GUIDANCE,
     BACKGROUND_IMAGES,
@@ -39,12 +39,12 @@ from fitafter40.core.content import (
     SUPPLEMENT_NOTE,
     WORKOUT_PLANS,
 )
-from fitafter40.services.mail import mail, send_password_reset_email, send_verification_email
-from fitafter40.core.models import ContactMessage, ExerciseLogEntry, User, WorkoutProgress, db
-from fitafter40.services.sso import PROVIDER_META, fetch_sso_profile, get_configured_providers, oauth, register_providers
-from fitafter40.utils.tokens import EMAIL_VERIFY_SALT, PASSWORD_RESET_SALT, generate_token, verify_token
-from fitafter40.utils.tracing import configure_tracing
-from fitafter40.utils.units import format_hydration_target, format_protein_target, format_weight, lb_to_kg
+from fitAtAnyAge.services.mail import mail, send_password_reset_email, send_verification_email
+from fitAtAnyAge.core.models import ContactMessage, ExerciseLogEntry, User, WorkoutProgress, db
+from fitAtAnyAge.services.sso import PROVIDER_META, fetch_sso_profile, get_configured_providers, oauth, register_providers
+from fitAtAnyAge.utils.tokens import EMAIL_VERIFY_SALT, PASSWORD_RESET_SALT, generate_token, verify_token
+from fitAtAnyAge.utils.tracing import configure_tracing
+from fitAtAnyAge.utils.units import format_hydration_target, format_protein_target, format_weight, lb_to_kg
 
 load_dotenv()
 
@@ -61,7 +61,7 @@ app.secret_key = config.SECRET_KEY
 
 os.makedirs(app.instance_path, exist_ok=True)
 app.config["SQLALCHEMY_DATABASE_URI"] = config.DATABASE_URL or (
-    f"sqlite:///{os.path.join(app.instance_path, 'fitafter40.db')}"
+    f"sqlite:///{os.path.join(app.instance_path, 'fitAtAnyAge.db')}"
 )
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)

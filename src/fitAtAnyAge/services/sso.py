@@ -5,7 +5,7 @@ register_providers() below, and add it to PROVIDER_META."""
 
 from authlib.integrations.flask_client import OAuth
 
-from fitafter40.core import config
+from fitAtAnyAge.core import config
 
 oauth = OAuth()
 

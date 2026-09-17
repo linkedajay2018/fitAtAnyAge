@@ -9,7 +9,7 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor, ConsoleSpanExport
 _configured = False
 
 
-def configure_tracing(app, service_name="fitafter40", otlp_endpoint=None):
+def configure_tracing(app, service_name="fitAtAnyAge", otlp_endpoint=None):
     """Set up OpenTelemetry tracing for the Flask app and its outbound
     HTTP calls (e.g. to Stripe). Exports to an OTLP collector (e.g. Jaeger)
     when otlp_endpoint is given, otherwise prints spans to the console so

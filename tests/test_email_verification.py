@@ -1,13 +1,13 @@
 from unittest.mock import patch
 
-from fitafter40 import app as app_module
-from fitafter40.core.models import User
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core.models import User
 
 from helpers import login, signup
 
 
 def test_signup_creates_unverified_user_and_sends_verification_email(client):
-    with patch("fitafter40.app.send_verification_email") as mock_send:
+    with patch("fitAtAnyAge.app.send_verification_email") as mock_send:
         signup(client, email="new@example.com")
 
     with app_module.app.app_context():
@@ -27,13 +27,13 @@ def test_sso_account_is_pre_verified():
 
 
 def test_unverified_banner_shown_after_signup(client):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         resp = signup(client, email="unverified@example.com")
     assert b"verify your email" in resp.data.lower()
 
 
 def test_verified_user_sees_no_banner(client):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         signup(client, email="willverify@example.com")
 
     with app_module.app.app_context():
@@ -45,7 +45,7 @@ def test_verified_user_sees_no_banner(client):
 
 
 def test_verify_email_with_valid_token_marks_verified(client):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         signup(client, email="verifyme@example.com")
 
     with app_module.app.app_context():
@@ -82,10 +82,10 @@ def test_resend_verification_requires_login(client):
 
 
 def test_resend_verification_sends_when_unverified(client):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         signup(client, email="resend@example.com")
 
-    with patch("fitafter40.app.send_verification_email") as mock_send:
+    with patch("fitAtAnyAge.app.send_verification_email") as mock_send:
         resp = client.post("/resend-verification", follow_redirects=True)
 
     assert resp.status_code == 200
@@ -93,17 +93,17 @@ def test_resend_verification_sends_when_unverified(client):
 
 
 def test_resend_verification_noop_when_already_verified(client):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         signup(client, email="alreadyverified@example.com")
 
     with app_module.app.app_context():
         user = User.query.filter_by(email="alreadyverified@example.com").first()
         user.email_verified = True
-        from fitafter40.core.models import db
+        from fitAtAnyAge.core.models import db
 
         db.session.commit()
 
-    with patch("fitafter40.app.send_verification_email") as mock_send:
+    with patch("fitAtAnyAge.app.send_verification_email") as mock_send:
         resp = client.post("/resend-verification", follow_redirects=True)
 
     assert resp.status_code == 200

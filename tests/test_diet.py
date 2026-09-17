@@ -1,5 +1,5 @@
-from fitafter40.core.content import AGE_GROUPS, DIET_GUIDANCE, PROTEIN_SOURCES, SUPPLEMENT_NOTE
-from fitafter40.utils.units import format_hydration_target, format_protein_target
+from fitAtAnyAge.core.content import AGE_GROUPS, DIET_GUIDANCE, PROTEIN_SOURCES, SUPPLEMENT_NOTE
+from fitAtAnyAge.utils.units import format_hydration_target, format_protein_target
 
 
 def test_diet_guidance_covers_every_age_group():

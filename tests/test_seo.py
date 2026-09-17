@@ -1,4 +1,4 @@
-from fitafter40.core import config
+from fitAtAnyAge.core import config
 
 
 def test_robots_txt(client):

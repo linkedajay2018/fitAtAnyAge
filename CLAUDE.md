@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 **FitAtAnyAge** (displayed brand name — the project folder and some internal identifiers, e.g.
-`instance/fitafter40.db`, are still named `fitafter40` for historical reasons; cosmetic, not renamed —
+`instance/fitAtAnyAge.db`, are still named `fitAtAnyAge` for historical reasons; cosmetic, not renamed —
 see "Deliberately not implemented" below) — a Flask website with workout plans, tools, and a paid
 membership tier, for people training at any age, 20s through 70s. Single Flask app, SQLite, no
 frontend framework (server-rendered Jinja2 + a little vanilla JS).
@@ -21,7 +21,7 @@ broadens further (don't hardcode age-specific copy outside `content.py`).
 source venv/bin/activate
 pip install -r requirements.txt
 python run.py                    # http://127.0.0.1:5050 (port via config.PORT)
-# or: PYTHONPATH=src python -m fitafter40.app
+# or: PYTHONPATH=src python -m fitAtAnyAge.app
 ```
 
 ### Running tests
@@ -57,9 +57,9 @@ After `pybabel update`, always check for `#, fuzzy` entries in `.po` files and f
 
 ## Architecture
 
-Code is organized under `src/fitafter40/` with the following structure:
+Code is organized under `src/fitAtAnyAge/` with the following structure:
 
-**Core** (`src/fitafter40/core/`)
+**Core** (`src/fitAtAnyAge/core/`)
 - **`app.py`** — all routes: pages, auth (signup/login/logout/admin), password reset
   (`/forgot-password`, `/reset-password/<token>`), email verification (`/verify-email/<token>`,
   `/resend-verification`), account settings (`/account` + `/account/*` POST actions — change
@@ -94,7 +94,7 @@ Code is organized under `src/fitafter40/` with the following structure:
   workout log, distinct from `WorkoutProgress` — see "Exercise history"). Adding a *column* to an
   existing model still hits the no-migrations gotcha below; a whole new model (table) does not.
 
-**Services** (`src/fitafter40/services/`)
+**Services** (`src/fitAtAnyAge/services/`)
 - **`chatbot.py`** — `get_faq_reply()` (keyword-matches `content.py`'s `CHATBOT_FAQ`, always available,
   zero config) and `get_ai_reply()` (Claude API via the `anthropic` SDK, used only when
   `config.CHATBOT_AI_CONFIGURED` — `ANTHROPIC_API_KEY` set; model id from `config.ANTHROPIC_MODEL`,
@@ -112,7 +112,7 @@ Code is organized under `src/fitafter40/` with the following structure:
   `fetch_sso_profile(provider, client, token)` (extend this to add a new provider). SSO accounts get
   `email_verified=True` in `_find_or_create_sso_user()` since the provider already verified the email.
 
-**Utils** (`src/fitafter40/utils/`)
+**Utils** (`src/fitAtAnyAge/utils/`)
 - **`tokens.py`** — signed, time-limited tokens (`itsdangerous.URLSafeTimedSerializer`) for password
   reset / email verification, no DB column needed. `generate_token(email, salt)` /
   `verify_token(token, salt, max_age_seconds)` — always pass the matching salt (`PASSWORD_RESET_SALT`
@@ -120,7 +120,7 @@ Code is organized under `src/fitafter40/` with the following structure:
   double as a verify link.
 - **`tracing.py`** — OpenTelemetry setup. Takes `service_name`/`otlp_endpoint` as explicit params (not
   env reads) so it stays testable; `app.py` passes them from `config.py` (`service_name` defaults to
-  `"fitafter40"`, overridable via `OTEL_SERVICE_NAME`).
+  `"fitAtAnyAge"`, overridable via `OTEL_SERVICE_NAME`).
 - **`units.py`** — metric↔imperial conversion for display (see "Units" section).
 - **`templates/`** — Jinja2, all extending `base.html`. Site-wide values (`site_name`, `site_tagline`,
   `premium_price_label`, `contact_email`, etc.) are injected via the `inject_site_config` context
@@ -361,9 +361,9 @@ is a manually-entered diary row for whatever a user actually did, with no requir
 ## File tree
 
 ```
-fitafter40/
+fitAtAnyAge/
   src/
-    fitafter40/
+    fitAtAnyAge/
       __init__.py       # Package marker
       app.py            # Flask routes, auth/authz, Stripe checkout, UPI QR, SEO, chat
       core/
@@ -519,6 +519,6 @@ category until explicitly requested and built — see the sections above.
 
 Also deliberate: when the site broadened from "40+" to all ages, only *displayed* branding
 (`config.py`'s `SITE_NAME`/`SITE_TAGLINE`/etc.) changed — internal identifiers still saying
-`fitafter40` (project folder, `instance/fitafter40.db`, the localStorage key prefix, `OTEL_SERVICE_NAME`
+`fitAtAnyAge` (project folder, `instance/fitAtAnyAge.db`, the localStorage key prefix, `OTEL_SERVICE_NAME`
 default) were left alone deliberately. Invisible to end users; renaming them is large-blast-radius,
 low-value — don't do it without the user explicitly asking.

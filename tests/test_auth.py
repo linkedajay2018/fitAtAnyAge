@@ -1,6 +1,6 @@
-from fitafter40 import app as app_module
-from fitafter40.core import config
-from fitafter40.core.models import User, db
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core import config
+from fitAtAnyAge.core.models import User, db
 
 from helpers import login, signup
 

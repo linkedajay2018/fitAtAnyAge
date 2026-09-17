@@ -1,5 +1,5 @@
-from fitafter40.core import config
-from fitafter40.utils.units import format_hydration_target, format_protein_target
+from fitAtAnyAge.core import config
+from fitAtAnyAge.utils.units import format_hydration_target, format_protein_target
 
 
 def test_default_units_is_metric(client):

@@ -1,8 +1,8 @@
 from unittest.mock import MagicMock, patch
 
-from fitafter40 import app as app_module
-from fitafter40.core import config
-from fitafter40.core.models import User, db
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core import config
+from fitAtAnyAge.core.models import User, db
 
 from helpers import signup
 
@@ -93,7 +93,7 @@ def test_sso_login_redirects_to_provider_when_configured(client, monkeypatch):
     mock_client = MagicMock()
     mock_client.authorize_redirect.return_value = app_module.redirect("https://accounts.google.com/fake-consent-screen")
 
-    with patch("fitafter40.app.oauth.create_client", return_value=mock_client):
+    with patch("fitAtAnyAge.app.oauth.create_client", return_value=mock_client):
         resp = client.get("/login/google")
 
     assert resp.status_code == 302
@@ -108,7 +108,7 @@ def test_sso_callback_creates_and_logs_in_new_user(client, monkeypatch):
         "userinfo": {"email": "fresh.from.google@example.com", "name": "Fresh Google User"}
     }
 
-    with patch("fitafter40.app.oauth.create_client", return_value=mock_client):
+    with patch("fitAtAnyAge.app.oauth.create_client", return_value=mock_client):
         resp = client.get("/login/google/callback", follow_redirects=True)
 
     assert resp.status_code == 200
@@ -126,7 +126,7 @@ def test_sso_callback_handles_missing_email_gracefully(client, monkeypatch):
     mock_client.authorize_access_token.return_value = {"access_token": "fake"}
     mock_client.get.return_value.json.return_value = {"id": "123", "name": "No Email Person"}
 
-    with patch("fitafter40.app.oauth.create_client", return_value=mock_client):
+    with patch("fitAtAnyAge.app.oauth.create_client", return_value=mock_client):
         resp = client.get("/login/facebook/callback", follow_redirects=True)
 
     assert resp.status_code == 200
@@ -138,7 +138,7 @@ def test_sso_callback_falls_back_gracefully_on_provider_error(client, monkeypatc
     mock_client = MagicMock()
     mock_client.authorize_access_token.side_effect = Exception("provider rejected the request")
 
-    with patch("fitafter40.app.oauth.create_client", return_value=mock_client):
+    with patch("fitAtAnyAge.app.oauth.create_client", return_value=mock_client):
         resp = client.get("/login/google/callback", follow_redirects=True)
 
     assert resp.status_code == 200

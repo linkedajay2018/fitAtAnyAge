@@ -1,13 +1,13 @@
 from unittest.mock import patch
 
-from fitafter40 import app as app_module
-from fitafter40.core.models import ExerciseLogEntry, db
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core.models import ExerciseLogEntry, db
 
 from helpers import signup
 
 
 def _signup(client, email="alex@example.com"):
-    with patch("fitafter40.app.send_verification_email"):
+    with patch("fitAtAnyAge.app.send_verification_email"):
         return signup(client, email=email)
 
 
@@ -182,7 +182,7 @@ def test_account_delete_cleans_up_exercise_history(client):
     client.post("/history/add", data={"exercise_name": "Squats"}, follow_redirects=True)
 
     with app_module.app.app_context():
-        from fitafter40.core.models import User
+        from fitAtAnyAge.core.models import User
 
         user_id = User.query.filter_by(email="deleteme@example.com").first().id
 

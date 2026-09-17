@@ -1,5 +1,5 @@
-from fitafter40 import app as app_module
-from fitafter40.core.models import ContactMessage
+from fitAtAnyAge import app as app_module
+from fitAtAnyAge.core.models import ContactMessage
 
 
 def test_contact_get(client):

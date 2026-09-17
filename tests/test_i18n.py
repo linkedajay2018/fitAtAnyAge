@@ -1,5 +1,5 @@
-from fitafter40.core import config
-from fitafter40.core.content import AGE_GUIDANCE, WORKOUT_PLANS
+from fitAtAnyAge.core import config
+from fitAtAnyAge.core.content import AGE_GUIDANCE, WORKOUT_PLANS
 
 
 def test_default_locale_is_english(client):
