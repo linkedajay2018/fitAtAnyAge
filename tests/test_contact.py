@@ -1,5 +1,5 @@
-import app as app_module
-from models import ContactMessage
+from fitafter40 import app as app_module
+from fitafter40.core.models import ContactMessage
 
 
 def test_contact_get(client):

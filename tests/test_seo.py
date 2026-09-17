@@ -1,4 +1,4 @@
-import config
+from fitafter40.core import config
 
 
 def test_robots_txt(client):

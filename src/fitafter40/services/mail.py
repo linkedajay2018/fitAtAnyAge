@@ -7,7 +7,7 @@ flows are fully usable and testable with zero SMTP setup."""
 
 from flask_mail import Mail, Message
 
-import config
+from fitafter40.core import config
 
 mail = Mail()
 

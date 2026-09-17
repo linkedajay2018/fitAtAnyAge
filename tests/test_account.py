@@ -1,8 +1,8 @@
 import json
 from unittest.mock import patch
 
-import app as app_module
-from models import User, db
+from fitafter40 import app as app_module
+from fitafter40.core.models import User, db
 
 from helpers import login, signup
 
@@ -14,7 +14,7 @@ def test_account_page_requires_login(client):
 
 
 def test_account_page_loads_for_logged_in_user(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="acct@example.com")
     resp = client.get("/account")
     assert resp.status_code == 200
@@ -22,7 +22,7 @@ def test_account_page_loads_for_logged_in_user(client):
 
 
 def test_change_email_requires_correct_current_password(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="wrongpw@example.com", password="password123")
 
     resp = client.post(
@@ -38,7 +38,7 @@ def test_change_email_requires_correct_current_password(client):
 
 
 def test_change_email_updates_and_resets_verification(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="oldaddr@example.com", password="password123")
 
     with app_module.app.app_context():
@@ -46,7 +46,7 @@ def test_change_email_updates_and_resets_verification(client):
         user.email_verified = True
         db.session.commit()
 
-    with patch("app.send_verification_email") as mock_send:
+    with patch("fitafter40.app.send_verification_email") as mock_send:
         resp = client.post(
             "/account/email",
             data={"email": "newaddr@example.com", "current_password": "password123"},
@@ -66,7 +66,7 @@ def test_change_email_updates_and_resets_verification(client):
 
 
 def test_change_email_rejects_duplicate(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="taken@example.com")
         client.get("/logout")
         signup(client, email="mine@example.com", password="password123")
@@ -80,7 +80,7 @@ def test_change_email_rejects_duplicate(client):
 
 
 def test_change_password_requires_correct_current_password(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="pwchange@example.com", password="password123")
 
     resp = client.post(
@@ -92,7 +92,7 @@ def test_change_password_requires_correct_current_password(client):
 
 
 def test_change_password_updates_successfully(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="pwok@example.com", password="password123")
 
     resp = client.post(
@@ -166,7 +166,7 @@ def test_disconnect_sso_succeeds_with_password(client):
 
 
 def test_delete_account_requires_exact_email_match(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="deleteme@example.com", password="password123")
 
     resp = client.post(
@@ -181,7 +181,7 @@ def test_delete_account_requires_exact_email_match(client):
 
 
 def test_delete_account_requires_correct_password(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="deletewrongpw@example.com", password="password123")
 
     resp = client.post(
@@ -193,7 +193,7 @@ def test_delete_account_requires_correct_password(client):
 
 
 def test_delete_account_succeeds_and_logs_out(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="deletesucceeds@example.com", password="password123")
 
     resp = client.post(
@@ -217,7 +217,7 @@ def test_export_data_requires_login(client):
 
 
 def test_export_data_returns_expected_fields(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="exportme@example.com")
 
     resp = client.get("/account/export")

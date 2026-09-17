@@ -26,9 +26,9 @@ from flask_wtf import CSRFProtect
 from opentelemetry import trace
 from opentelemetry.trace import Status, StatusCode
 
-import config
-from chatbot import get_ai_reply, get_faq_reply
-from content import (
+from fitafter40.core import config
+from fitafter40.services.chatbot import get_ai_reply, get_faq_reply
+from fitafter40.core.content import (
     AGE_GROUPS,
     AGE_GUIDANCE,
     BACKGROUND_IMAGES,
@@ -39,16 +39,24 @@ from content import (
     SUPPLEMENT_NOTE,
     WORKOUT_PLANS,
 )
-from mail import mail, send_password_reset_email, send_verification_email
-from models import ContactMessage, ExerciseLogEntry, User, WorkoutProgress, db
-from sso import PROVIDER_META, fetch_sso_profile, get_configured_providers, oauth, register_providers
-from tokens import EMAIL_VERIFY_SALT, PASSWORD_RESET_SALT, generate_token, verify_token
-from tracing import configure_tracing
-from units import format_hydration_target, format_protein_target, format_weight, lb_to_kg
+from fitafter40.services.mail import mail, send_password_reset_email, send_verification_email
+from fitafter40.core.models import ContactMessage, ExerciseLogEntry, User, WorkoutProgress, db
+from fitafter40.services.sso import PROVIDER_META, fetch_sso_profile, get_configured_providers, oauth, register_providers
+from fitafter40.utils.tokens import EMAIL_VERIFY_SALT, PASSWORD_RESET_SALT, generate_token, verify_token
+from fitafter40.utils.tracing import configure_tracing
+from fitafter40.utils.units import format_hydration_target, format_protein_target, format_weight, lb_to_kg
 
 load_dotenv()
 
-app = Flask(__name__)
+# Resolve paths to templates and static files from project root
+_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+_template_dir = os.path.join(_base_dir, "templates")
+_static_dir = os.path.join(_base_dir, "static")
+_instance_dir = os.path.join(_base_dir, "instance")
+_translations_dir = os.path.join(_base_dir, "translations")
+
+app = Flask(__name__, template_folder=_template_dir, static_folder=_static_dir, instance_path=_instance_dir)
+app.config["BABEL_TRANSLATION_DIRECTORIES"] = _translations_dir
 app.secret_key = config.SECRET_KEY
 
 os.makedirs(app.instance_path, exist_ok=True)

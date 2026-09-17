@@ -20,7 +20,8 @@ broadens further (don't hardcode age-specific copy outside `content.py`).
 ```bash
 source venv/bin/activate
 pip install -r requirements.txt
-python app.py                    # http://127.0.0.1:5050 (port via config.PORT)
+python run.py                    # http://127.0.0.1:5050 (port via config.PORT)
+# or: PYTHONPATH=src python -m fitafter40.app
 ```
 
 ### Running tests
@@ -56,6 +57,9 @@ After `pybabel update`, always check for `#, fuzzy` entries in `.po` files and f
 
 ## Architecture
 
+Code is organized under `src/fitafter40/` with the following structure:
+
+**Core** (`src/fitafter40/core/`)
 - **`app.py`** — all routes: pages, auth (signup/login/logout/admin), password reset
   (`/forgot-password`, `/reset-password/<token>`), email verification (`/verify-email/<token>`,
   `/resend-verification`), account settings (`/account` + `/account/*` POST actions — change
@@ -63,12 +67,6 @@ After `pybabel update`, always check for `#, fuzzy` entries in `.po` files and f
   `/history/add`, `/history/<id>/delete` — see "Exercise history" below), Stripe checkout, UPI QR, SEO
   routes, `/chat`, error handlers. Wires up Flask-Mail, Flask-Limiter, flask-talisman — see their own
   sections below.
-- **`chatbot.py`** — `get_faq_reply()` (keyword-matches `content.py`'s `CHATBOT_FAQ`, always available,
-  zero config) and `get_ai_reply()` (Claude API via the `anthropic` SDK, used only when
-  `config.CHATBOT_AI_CONFIGURED` — `ANTHROPIC_API_KEY` set; model id from `config.ANTHROPIC_MODEL`,
-  default `claude-sonnet-4-5`, env-overridable). `/chat` tries AI first when configured and falls back
-  to FAQ on any exception — the widget must never hard-fail on a failed API call (see "Known gotchas"
-  for a real bug this swallowed silently once).
 - **`config.py`** — the *only* place that reads `os.environ`. Every setting has a local-dev default.
   New configurable value? Add it here, not inline in `app.py`.
 - **`content.py`** — static site copy: `WORKOUT_PLANS` (3 levels, each with a base `exercises` list
@@ -95,24 +93,35 @@ After `pybabel update`, always check for `#, fuzzy` entries in `.po` files and f
   user+level_id+exercise_index checked off — see "Workout progress sync"). `ExerciseLogEntry` (free-text
   workout log, distinct from `WorkoutProgress` — see "Exercise history"). Adding a *column* to an
   existing model still hits the no-migrations gotcha below; a whole new model (table) does not.
+
+**Services** (`src/fitafter40/services/`)
+- **`chatbot.py`** — `get_faq_reply()` (keyword-matches `content.py`'s `CHATBOT_FAQ`, always available,
+  zero config) and `get_ai_reply()` (Claude API via the `anthropic` SDK, used only when
+  `config.CHATBOT_AI_CONFIGURED` — `ANTHROPIC_API_KEY` set; model id from `config.ANTHROPIC_MODEL`,
+  default `claude-sonnet-4-5`, env-overridable). `/chat` tries AI first when configured and falls back
+  to FAQ on any exception — the widget must never hard-fail on a failed API call (see "Known gotchas"
+  for a real bug this swallowed silently once).
+- **`mail.py`** — outgoing email, same graceful-degradation pattern as Stripe/UPI: without
+  `config.MAIL_CONFIGURED`, `_send()` prints to console instead of sending — reset/verification flows
+  work with zero SMTP setup. `app.py` builds the URL (`url_for(..., _external=True)`) and passes it in;
+  `mail.py` never touches routing.
 - **`sso.py`** — Google/Facebook OAuth via Authlib. `oauth` (shared `OAuth()` client registry — `app.py`
   imports this exact object, so patching `app.oauth.create_client` in tests affects the real thing),
   `register_providers(app)` (startup-only; registers a provider only if its config is present —
   `/login/<provider>` checks `get_configured_providers()` *before* `oauth.create_client`, never after),
   `fetch_sso_profile(provider, client, token)` (extend this to add a new provider). SSO accounts get
   `email_verified=True` in `_find_or_create_sso_user()` since the provider already verified the email.
+
+**Utils** (`src/fitafter40/utils/`)
 - **`tokens.py`** — signed, time-limited tokens (`itsdangerous.URLSafeTimedSerializer`) for password
   reset / email verification, no DB column needed. `generate_token(email, salt)` /
   `verify_token(token, salt, max_age_seconds)` — always pass the matching salt (`PASSWORD_RESET_SALT`
   vs `EMAIL_VERIFY_SALT`); a token from one salt is rejected under the other, so a reset link can't
   double as a verify link.
-- **`mail.py`** — outgoing email, same graceful-degradation pattern as Stripe/UPI: without
-  `config.MAIL_CONFIGURED`, `_send()` prints to console instead of sending — reset/verification flows
-  work with zero SMTP setup. `app.py` builds the URL (`url_for(..., _external=True)`) and passes it in;
-  `mail.py` never touches routing.
 - **`tracing.py`** — OpenTelemetry setup. Takes `service_name`/`otlp_endpoint` as explicit params (not
   env reads) so it stays testable; `app.py` passes them from `config.py` (`service_name` defaults to
   `"fitafter40"`, overridable via `OTEL_SERVICE_NAME`).
+- **`units.py`** — metric↔imperial conversion for display (see "Units" section).
 - **`templates/`** — Jinja2, all extending `base.html`. Site-wide values (`site_name`, `site_tagline`,
   `premium_price_label`, `contact_email`, etc.) are injected via the `inject_site_config` context
   processor in `app.py` — don't hardcode brand/price/domain in a template.
@@ -353,32 +362,42 @@ is a manually-entered diary row for whatever a user actually did, with no requir
 
 ```
 fitafter40/
-  app.py            # Flask routes, auth/authz, Stripe checkout, UPI QR, SEO, chat
-  chatbot.py        # Chat assistant: FAQ matching + optional Claude API backend
-  config.py         # Single source of truth for all env-derived settings
-  content.py        # Site content: plans, diet, safety tips, age guidance, FAQ, quotes
-  models.py         # SQLAlchemy models: User, ContactMessage, WorkoutProgress, ExerciseLogEntry
-  sso.py            # Google/Facebook OAuth login (Authlib)
-  tracing.py        # OpenTelemetry setup (console or OTLP/Jaeger export)
-  mail.py           # Outgoing email (password reset, email verification)
-  tokens.py         # Signed, time-limited tokens for reset/verify links
-  units.py          # Metric<->imperial conversion (Diet Plan, Exercise History)
-  babel.cfg         # pybabel extraction config (scans *.py and templates/**.html)
-  translations/     # Per-locale .po/.mo catalogs (translations/<code>/LC_MESSAGES/)
-  instance/         # SQLite database lives here (created automatically, gitignored)
+  src/
+    fitafter40/
+      __init__.py       # Package marker
+      app.py            # Flask routes, auth/authz, Stripe checkout, UPI QR, SEO, chat
+      core/
+        __init__.py
+        config.py       # Single source of truth for all env-derived settings
+        content.py      # Site content: plans, diet, safety tips, age guidance, FAQ, quotes
+        models.py       # SQLAlchemy models: User, ContactMessage, WorkoutProgress, ExerciseLogEntry
+      services/
+        __init__.py
+        chatbot.py      # Chat assistant: FAQ matching + optional Claude API backend
+        mail.py         # Outgoing email (password reset, email verification)
+        sso.py          # Google/Facebook OAuth login (Authlib)
+      utils/
+        __init__.py
+        tokens.py       # Signed, time-limited tokens for reset/verify links
+        tracing.py      # OpenTelemetry setup (console or OTLP/Jaeger export)
+        units.py        # Metric<->imperial conversion (Diet Plan, Exercise History)
+  babel.cfg             # pybabel extraction config (scans *.py and templates/**.html)
+  run.py                # Entry point script for running the app
   requirements.txt      # App dependencies
   requirements-dev.txt  # App dependencies + pytest
-  .env.example      # Template for every setting in config.py (copy to .env)
-  Dockerfile        # Container build (gunicorn-served)
-  docker-compose.yml     # docker compose up --build
-  .dockerignore     # Keeps venv/.env/tests out of the image
-  pytest.ini        # Points pytest at tests/
-  tests/            # Automated tests (pytest + Flask test client)
-  templates/        # HTML pages (Jinja2), incl. 404.html/500.html
-  static/style.css  # Styling
-  static/script.js  # Checklist, BMI calc, age selector, chat, background rotator
-  static/favicon.svg     # Site favicon
-  static/backgrounds/    # Licensed Pexels photos for the background rotator
+  .env.example          # Template for every setting in config.py (copy to .env)
+  Dockerfile            # Container build (gunicorn-served)
+  docker-compose.yml    # docker compose up --build
+  .dockerignore         # Keeps venv/.env/tests out of the image
+  pytest.ini            # Points pytest at tests/
+  tests/                # Automated tests (pytest + Flask test client)
+  templates/            # HTML pages (Jinja2), incl. 404.html/500.html
+  static/style.css      # Styling
+  static/script.js      # Checklist, BMI calc, age selector, chat, background rotator
+  static/favicon.svg    # Site favicon
+  static/backgrounds/   # Licensed Pexels photos for the background rotator
+  translations/         # Per-locale .po/.mo catalogs (translations/<code>/LC_MESSAGES/)
+  instance/             # SQLite database lives here (created automatically, gitignored)
 ```
 
 ## Conventions

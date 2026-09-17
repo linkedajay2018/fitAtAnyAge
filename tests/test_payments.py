@@ -1,14 +1,14 @@
 from unittest.mock import MagicMock, patch
 
-import app as app_module
-import config
+from fitafter40 import app as app_module
+from fitafter40.core import config
 
 from helpers import signup
 
 
 def test_membership_shows_not_configured_by_default(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", False)
-    monkeypatch.setattr(config, "UPI_CONFIGURED", False)
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", False)
+    monkeypatch.setattr(app_module.config, "UPI_CONFIGURED", False)
     signup(client)
 
     resp = client.get("/membership")
@@ -19,7 +19,7 @@ def test_membership_shows_not_configured_by_default(client, monkeypatch):
 
 
 def test_membership_shows_subscribe_button_when_stripe_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", True)
     signup(client)
 
     resp = client.get("/membership")
@@ -29,8 +29,8 @@ def test_membership_shows_subscribe_button_when_stripe_configured(client, monkey
 
 
 def test_membership_shows_qr_code_when_upi_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "UPI_CONFIGURED", True)
-    monkeypatch.setattr(config, "UPI_VPA", "test@upi")
+    monkeypatch.setattr(app_module.config, "UPI_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "UPI_VPA", "test@upi")
     signup(client)
 
     resp = client.get("/membership")
@@ -41,10 +41,10 @@ def test_membership_shows_qr_code_when_upi_configured(client, monkeypatch):
 
 
 def test_membership_shows_premium_status_instead_of_buttons(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", True)
     signup(client)
     with app_module.app.app_context():
-        from models import User, db
+        from fitafter40.core.models import User, db
 
         user = User.query.filter_by(email="alex@example.com").first()
         user.is_premium = True
@@ -58,7 +58,7 @@ def test_membership_shows_premium_status_instead_of_buttons(client, monkeypatch)
 
 
 def test_checkout_session_redirects_with_error_when_not_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", False)
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", False)
     signup(client)
 
     resp = client.post("/create-checkout-session", follow_redirects=True)
@@ -68,12 +68,12 @@ def test_checkout_session_redirects_with_error_when_not_configured(client, monke
 
 
 def test_checkout_session_redirects_to_stripe_when_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", True)
-    monkeypatch.setattr(config, "STRIPE_PRICE_ID", "price_123")
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "STRIPE_PRICE_ID", "price_123")
     signup(client)
     fake_session = MagicMock(url="https://checkout.stripe.com/test-session")
 
-    with patch("app.stripe.checkout.Session.create", return_value=fake_session) as mock_create:
+    with patch("fitafter40.app.stripe.checkout.Session.create", return_value=fake_session) as mock_create:
         resp = client.post("/create-checkout-session")
 
     assert resp.status_code == 303
@@ -83,11 +83,11 @@ def test_checkout_session_redirects_to_stripe_when_configured(client, monkeypatc
 
 
 def test_checkout_session_handles_stripe_error_gracefully(client, monkeypatch):
-    monkeypatch.setattr(config, "STRIPE_CONFIGURED", True)
-    monkeypatch.setattr(config, "STRIPE_PRICE_ID", "price_123")
+    monkeypatch.setattr(app_module.config, "STRIPE_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "STRIPE_PRICE_ID", "price_123")
     signup(client)
 
-    with patch("app.stripe.checkout.Session.create", side_effect=Exception("boom")):
+    with patch("fitafter40.app.stripe.checkout.Session.create", side_effect=Exception("boom")):
         resp = client.post("/create-checkout-session", follow_redirects=True)
 
     assert resp.status_code == 200
@@ -95,7 +95,7 @@ def test_checkout_session_handles_stripe_error_gracefully(client, monkeypatch):
 
 
 def test_upi_qr_is_404_when_not_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "UPI_CONFIGURED", False)
+    monkeypatch.setattr(app_module.config, "UPI_CONFIGURED", False)
     signup(client)
 
     resp = client.get("/upi-qr.png")
@@ -104,8 +104,8 @@ def test_upi_qr_is_404_when_not_configured(client, monkeypatch):
 
 
 def test_upi_qr_returns_png_when_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "UPI_CONFIGURED", True)
-    monkeypatch.setattr(config, "UPI_VPA", "test@upi")
+    monkeypatch.setattr(app_module.config, "UPI_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "UPI_VPA", "test@upi")
     signup(client)
 
     resp = client.get("/upi-qr.png")
@@ -115,9 +115,9 @@ def test_upi_qr_returns_png_when_configured(client, monkeypatch):
 
 
 def test_build_upi_uri_format(monkeypatch):
-    monkeypatch.setattr(config, "UPI_VPA", "test@upi")
-    monkeypatch.setattr(config, "UPI_PAYEE_NAME", "FitAfter40")
-    monkeypatch.setattr(config, "UPI_AMOUNT", "999")
+    monkeypatch.setattr(app_module.config, "UPI_VPA", "test@upi")
+    monkeypatch.setattr(app_module.config, "UPI_PAYEE_NAME", "FitAfter40")
+    monkeypatch.setattr(app_module.config, "UPI_AMOUNT", "999")
 
     uri = app_module.build_upi_uri()
 

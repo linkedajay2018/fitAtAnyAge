@@ -1,6 +1,6 @@
-import app as app_module
-import config
-from models import User, db
+from fitafter40 import app as app_module
+from fitafter40.core import config
+from fitafter40.core.models import User, db
 
 from helpers import login, signup
 
@@ -94,7 +94,7 @@ def test_admin_page_forbidden_for_anonymous(client):
 
 
 def test_admin_email_is_promoted_on_signup(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     signup(client, email="boss@example.com")
 
     resp = client.get("/admin")
@@ -103,7 +103,7 @@ def test_admin_email_is_promoted_on_signup(client, monkeypatch):
 
 
 def test_admin_can_toggle_premium_for_another_user(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     signup(client, email="member@example.com")
     client.get("/logout")
     signup(client, email="boss@example.com")

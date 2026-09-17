@@ -1,4 +1,4 @@
-from content import AGE_GROUPS, AGE_GUIDANCE, WORKOUT_PLANS
+from fitafter40.core.content import AGE_GROUPS, AGE_GUIDANCE, WORKOUT_PLANS
 
 
 def test_age_guidance_covers_every_age_group():

@@ -5,7 +5,7 @@ register_providers() below, and add it to PROVIDER_META."""
 
 from authlib.integrations.flask_client import OAuth
 
-import config
+from fitafter40.core import config
 
 oauth = OAuth()
 

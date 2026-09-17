@@ -1,8 +1,9 @@
 from unittest.mock import patch
 
-import config
-from chatbot import get_faq_reply
-from content import CHATBOT_FAQ
+from fitafter40.core import config
+from fitafter40.services.chatbot import get_faq_reply
+from fitafter40.core.content import CHATBOT_FAQ
+from fitafter40 import app as app_module
 
 
 def test_faq_knowledge_base_is_well_formed():
@@ -50,9 +51,9 @@ def test_chat_endpoint_handles_empty_message(client):
 
 
 def test_chat_endpoint_uses_ai_when_configured(client, monkeypatch):
-    monkeypatch.setattr(config, "CHATBOT_AI_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "CHATBOT_AI_CONFIGURED", True)
 
-    with patch("app.get_ai_reply", return_value="AI generated answer") as mock_ai:
+    with patch("fitafter40.app.get_ai_reply", return_value="AI generated answer") as mock_ai:
         resp = client.post("/chat", json={"message": "hello"})
 
     assert resp.status_code == 200
@@ -61,9 +62,9 @@ def test_chat_endpoint_uses_ai_when_configured(client, monkeypatch):
 
 
 def test_chat_endpoint_falls_back_to_faq_when_ai_errors(client, monkeypatch):
-    monkeypatch.setattr(config, "CHATBOT_AI_CONFIGURED", True)
+    monkeypatch.setattr(app_module.config, "CHATBOT_AI_CONFIGURED", True)
 
-    with patch("app.get_ai_reply", side_effect=Exception("API down")):
+    with patch("fitafter40.app.get_ai_reply", side_effect=Exception("API down")):
         resp = client.post("/chat", json={"message": "How much protein do I need?"})
 
     assert resp.status_code == 200

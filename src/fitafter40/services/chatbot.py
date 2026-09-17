@@ -9,8 +9,8 @@ Two backends:
   natural answers than keyword matching can give.
 """
 
-import config
-from content import DIET_GUIDANCE, CHATBOT_FAQ, WORKOUT_PLANS
+from fitafter40.core import config
+from fitafter40.core.content import DIET_GUIDANCE, CHATBOT_FAQ, WORKOUT_PLANS
 from flask_babel import get_locale, gettext as _
 
 

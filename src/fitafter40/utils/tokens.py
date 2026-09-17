@@ -5,7 +5,7 @@ expires on its own after max_age_seconds."""
 
 from itsdangerous import BadSignature, SignatureExpired, URLSafeTimedSerializer
 
-import config
+from fitafter40.core import config
 
 PASSWORD_RESET_SALT = "password-reset"
 EMAIL_VERIFY_SALT = "email-verify"

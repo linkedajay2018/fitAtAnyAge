@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
 os.environ.setdefault("ENABLE_TRACING", "false")
 
@@ -22,8 +22,8 @@ def _cleanup_test_db():
 
 import pytest
 
-import app as app_module
-from models import db as db_module
+from fitafter40 import app as app_module
+from fitafter40.core.models import db as db_module
 
 
 @pytest.fixture(autouse=True)

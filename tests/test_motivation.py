@@ -1,4 +1,4 @@
-from content import MOTIVATIONAL_QUOTES
+from fitafter40.core.content import MOTIVATIONAL_QUOTES
 
 
 def test_motivational_quotes_list_is_populated():

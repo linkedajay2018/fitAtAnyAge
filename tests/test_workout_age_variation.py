@@ -1,7 +1,7 @@
 import json
 
-import app as app_module
-from content import AGE_GROUPS, WORKOUT_PLANS
+from fitafter40 import app as app_module
+from fitafter40.core.content import AGE_GROUPS, WORKOUT_PLANS
 
 
 def test_exercises_for_age_falls_back_to_base_when_no_override(client):

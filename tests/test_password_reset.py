@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
-import app as app_module
-from models import User, db
+from fitafter40 import app as app_module
+from fitafter40.core.models import User, db
 
 from helpers import login, signup
 
@@ -13,11 +13,11 @@ def test_forgot_password_page_loads(client):
 
 
 def test_forgot_password_sends_email_for_existing_account(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="hasaccount@example.com")
     client.get("/logout")
 
-    with patch("app.send_password_reset_email") as mock_send:
+    with patch("fitafter40.app.send_password_reset_email") as mock_send:
         resp = client.post("/forgot-password", data={"email": "hasaccount@example.com"}, follow_redirects=True)
 
     assert resp.status_code == 200
@@ -28,7 +28,7 @@ def test_forgot_password_sends_email_for_existing_account(client):
 
 
 def test_forgot_password_same_message_for_unknown_email(client):
-    with patch("app.send_password_reset_email") as mock_send:
+    with patch("fitafter40.app.send_password_reset_email") as mock_send:
         resp = client.post("/forgot-password", data={"email": "nobody@example.com"}, follow_redirects=True)
 
     assert resp.status_code == 200
@@ -37,7 +37,7 @@ def test_forgot_password_same_message_for_unknown_email(client):
 
 
 def test_reset_password_with_valid_token_updates_password(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="reset@example.com", password="oldpassword1")
     client.get("/logout")
 
@@ -53,7 +53,7 @@ def test_reset_password_with_valid_token_updates_password(client):
 
 
 def test_reset_password_enforces_minimum_length(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="short@example.com")
     client.get("/logout")
 

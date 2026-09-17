@@ -1,4 +1,4 @@
-import app as app_module
+from fitafter40 import app as app_module
 
 
 def test_security_headers_present(client):

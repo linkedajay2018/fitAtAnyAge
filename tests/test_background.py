@@ -1,6 +1,6 @@
 import os
 
-from content import BACKGROUND_IMAGES
+from fitafter40.core.content import BACKGROUND_IMAGES
 
 
 def test_background_images_list_is_populated():

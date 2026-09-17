@@ -1,15 +1,15 @@
 from unittest.mock import patch
 
-import app as app_module
-import config
-from models import ContactMessage, db
+from fitafter40 import app as app_module
+from fitafter40.core import config
+from fitafter40.core.models import ContactMessage, db
 
 from helpers import signup
 
 
 def test_admin_search_filters_by_email(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
-    with patch("app.send_verification_email"):
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="alice@example.com")
         client.get("/logout")
         signup(client, email="bob@example.com")
@@ -23,8 +23,8 @@ def test_admin_search_filters_by_email(client, monkeypatch):
 
 
 def test_admin_search_is_case_insensitive(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
-    with patch("app.send_verification_email"):
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="alice@example.com")
         client.get("/logout")
         signup(client, email="boss@example.com")
@@ -35,8 +35,8 @@ def test_admin_search_is_case_insensitive(client, monkeypatch):
 
 
 def test_admin_search_no_match_shows_empty_state(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
-    with patch("app.send_verification_email"):
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="boss@example.com")
 
     resp = client.get("/admin?q=nobody-matches-this")
@@ -51,20 +51,20 @@ def test_admin_messages_requires_admin(client):
 
 
 def test_admin_messages_forbidden_for_regular_user(client):
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client)
     resp = client.get("/admin/messages")
     assert resp.status_code == 403
 
 
 def test_admin_messages_lists_contact_submissions(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     client.post(
         "/contact",
         data={"name": "Casey", "email": "casey@example.com", "message": "Need help with my plan"},
         follow_redirects=True,
     )
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="boss@example.com")
 
     resp = client.get("/admin/messages")
@@ -75,13 +75,13 @@ def test_admin_messages_lists_contact_submissions(client, monkeypatch):
 
 
 def test_admin_can_mark_message_read_and_unread(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     client.post(
         "/contact",
         data={"name": "Casey", "email": "casey@example.com", "message": "Hi"},
         follow_redirects=True,
     )
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="boss@example.com")
 
     with app_module.app.app_context():
@@ -99,13 +99,13 @@ def test_admin_can_mark_message_read_and_unread(client, monkeypatch):
 
 
 def test_admin_can_delete_message(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     client.post(
         "/contact",
         data={"name": "Casey", "email": "casey@example.com", "message": "Hi"},
         follow_redirects=True,
     )
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="boss@example.com")
 
     with app_module.app.app_context():
@@ -120,13 +120,13 @@ def test_admin_can_delete_message(client, monkeypatch):
 
 
 def test_admin_page_shows_unread_message_count(client, monkeypatch):
-    monkeypatch.setattr(config, "ADMIN_EMAILS", {"boss@example.com"})
+    monkeypatch.setattr(app_module.config, "ADMIN_EMAILS", {"boss@example.com"})
     client.post(
         "/contact",
         data={"name": "Casey", "email": "casey@example.com", "message": "Hi"},
         follow_redirects=True,
     )
-    with patch("app.send_verification_email"):
+    with patch("fitafter40.app.send_verification_email"):
         signup(client, email="boss@example.com")
 
     resp = client.get("/admin")
