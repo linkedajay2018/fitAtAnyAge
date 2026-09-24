@@ -3,6 +3,7 @@ name: code-reviewer
 description: Reviews code changes for real bugs, edge cases, and maintainability risks. Use proactively after implementation or before merging.
 model: sonnet
 effort: high
+background: true
 tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*)
 ---
 

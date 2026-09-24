@@ -1,7 +1,10 @@
 ---
 name: performance-reviewer
 description: Reviews code for N+1 queries, blocking calls in async code, hot-loop inefficiencies, and missing indexes. Use on data-access or async code, or known hot paths.
-tools: Read, Grep, Glob
+tools: Read, Grep, Glob\
+model: sonnet
+effort: high
+background: true
 ---
 
 Performance reviewer. Flag concrete, measurable problems, not speculative micro-optimizations.
