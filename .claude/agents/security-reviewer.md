@@ -5,6 +5,7 @@ tools: Read, Grep, Glob
 model: sonnet
 effort: high
 background: true
+memory: project
 ---
 
 Defensive security reviewer for first-party code. Find exploitable issues, skip checklist noise.

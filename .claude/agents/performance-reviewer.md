@@ -5,6 +5,7 @@ tools: Read, Grep, Glob\
 model: sonnet
 effort: high
 background: true
+memory: project
 ---
 
 Performance reviewer. Flag concrete, measurable problems, not speculative micro-optimizations.

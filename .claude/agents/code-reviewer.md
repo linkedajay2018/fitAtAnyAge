@@ -5,6 +5,7 @@ model: sonnet
 effort: high
 background: true
 tools: Read, Grep, Glob, Bash(git diff:*), Bash(git status:*)
+memory: project
 ---
 
 Senior code reviewer. Find real, actionable problems; don't bikeshed style.

@@ -5,6 +5,7 @@ tools: Read, Bash
 model: sonnet
 effort: high
 background: true
+memory: project
 ---
 
 Coverage-gap finder. Prioritize critical paths (auth, payments, mutations, error handling) over exhaustive line coverage.
